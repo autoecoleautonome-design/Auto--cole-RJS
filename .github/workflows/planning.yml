@@ -25,23 +25,58 @@ concurrency:
 jobs:
   planning:
     runs-on: ubuntu-latest
+    outputs:
+      publie: ${{ steps.publier.outputs.publie }}
     steps:
+      - name: Vérifier la configuration
+        id: cfg
+        env:
+          PLANNING_ICS_URL: ${{ secrets.PLANNING_ICS_URL }}
+          PLANNING_ETAT_CLE: ${{ secrets.PLANNING_ETAT_CLE }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$PLANNING_ICS_URL" ]; then
+            echo "::notice::Secret PLANNING_ICS_URL absent : l'agent planning n'est pas encore configuré (voir README)."
+            echo "actif=0" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "actif=1" >> "$GITHUB_OUTPUT"
+          prive=$(gh api "repos/$GITHUB_REPOSITORY" --jq .private)
+          echo "prive=$prive" >> "$GITHUB_OUTPUT"
+          # L'état (noms et e-mails des élèves) n'est conservé que chiffré.
+          if [ -n "$PLANNING_ETAT_CLE" ]; then echo "etat=1" >> "$GITHUB_OUTPUT"; else
+            echo "::warning::Secret PLANNING_ETAT_CLE absent : les changements d'un passage à l'autre ne peuvent pas être détectés."
+            echo "etat=0" >> "$GITHUB_OUTPUT"; fi
+
       - uses: actions/checkout@v4
+        if: steps.cfg.outputs.actif == '1'
       - uses: actions/setup-node@v4
+        if: steps.cfg.outputs.actif == '1'
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+        if: steps.cfg.outputs.actif == '1'
 
-      # L'état du planning précédent (avec noms d'élèves) reste dans le cache privé d'Actions, jamais dans git.
-      - name: Restaurer le planning précédent
+      - name: Restaurer le planning précédent (chiffré)
+        if: steps.cfg.outputs.etat == '1'
         uses: actions/cache/restore@v4
         with:
-          path: etat
+          path: etat-chiffre
           key: planning-etat-${{ github.run_id }}
           restore-keys: planning-etat-
 
+      - name: Déchiffrer
+        if: steps.cfg.outputs.etat == '1'
+        env:
+          PLANNING_ETAT_CLE: ${{ secrets.PLANNING_ETAT_CLE }}
+        run: |
+          mkdir -p etat
+          if [ -f etat-chiffre/planning.enc ]; then
+            openssl enc -d -aes-256-cbc -pbkdf2 -in etat-chiffre/planning.enc -out etat/planning-precedent.json -pass env:PLANNING_ETAT_CLE
+          fi
+
       - name: Lancer l'agent
+        if: steps.cfg.outputs.actif == '1'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PLANNING_ICS_URL: ${{ secrets.PLANNING_ICS_URL }}
@@ -60,14 +95,25 @@ jobs:
           if [ "${{ github.event.inputs.envoyer }}" = "false" ]; then ENVOI=""; fi
           node agents/planning/cli.js --mode "$MODE" $ENVOI
 
-      - name: Sauvegarder le planning de référence
-        if: always()
+      - name: Chiffrer le nouveau planning de référence
+        if: steps.cfg.outputs.etat == '1'
+        env:
+          PLANNING_ETAT_CLE: ${{ secrets.PLANNING_ETAT_CLE }}
+        run: |
+          mkdir -p etat-chiffre
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in etat/planning-precedent.json -out etat-chiffre/planning.enc -pass env:PLANNING_ETAT_CLE
+          rm -f etat/planning-precedent.json
+
+      - name: Sauvegarder le planning de référence (chiffré)
+        if: steps.cfg.outputs.etat == '1'
         uses: actions/cache/save@v4
         with:
-          path: etat
+          path: etat-chiffre
           key: planning-etat-${{ github.run_id }}
 
       - name: Publier les annonces sur le site
+        id: publier
+        if: steps.cfg.outputs.actif == '1'
         run: |
           if ! git diff --quiet -- public/data/annonces.json; then
             git config user.name "agent-planning"
@@ -75,13 +121,26 @@ jobs:
             git add public/data/annonces.json
             git commit -m "Planning : annonces de la semaine"
             git push
+            echo "publie=true" >> "$GITHUB_OUTPUT"
           else
             echo "Pas de changement à publier."
           fi
 
-      - name: Conserver le brief et les e-mails (privé, 30 jours)
+      # Brief et e-mails contiennent des données d'élèves : conservés uniquement si le dépôt est privé.
+      - name: Conserver le brief et les e-mails (dépôt privé uniquement, 30 jours)
+        if: steps.cfg.outputs.prive == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: planning-${{ github.run_id }}
           path: sorties/planning
           retention-days: 30
+
+  # Les envois faits par un workflow ne relancent pas les autres : on republie le site ici.
+  site:
+    needs: planning
+    if: needs.planning.outputs.publie == 'true'
+    uses: ./.github/workflows/pages.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

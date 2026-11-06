@@ -50,7 +50,29 @@ const sse = (obj) => `data: ${JSON.stringify(obj)}\n\n`;
 const json = (status, obj) =>
   new Response(JSON.stringify(obj), { status, headers: { "content-type": "application/json; charset=utf-8" } });
 
+/**
+ * Autorise l'appel depuis un autre site (ex. le site sur GitHub Pages qui appelle la
+ * fonction Netlify). ALLOWED_ORIGINS = liste séparée par des virgules.
+ */
+function corsHeaders(request) {
+  const origin = request.headers.get("origin");
+  const allowed = (process.env.ALLOWED_ORIGINS || "").split(",").map((s) => s.trim()).filter(Boolean);
+  if (!origin || !(allowed.includes(origin) || allowed.includes("*"))) return {};
+  return {
+    "access-control-allow-origin": origin,
+    "access-control-allow-methods": "POST, OPTIONS",
+    "access-control-allow-headers": "content-type",
+    vary: "origin",
+  };
+}
+
 export async function handleChat(request) {
+  const response = await route(request);
+  for (const [k, v] of Object.entries(corsHeaders(request))) response.headers.set(k, v);
+  return response;
+}
+
+async function route(request) {
   if (request.method === "OPTIONS") return new Response(null, { status: 204 });
   if (request.method !== "POST") return json(405, { error: "Méthode non autorisée" });
 

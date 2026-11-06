@@ -1,9 +1,15 @@
 # Relevés bancaires
 
-Déposez ici l'export CSV de votre banque, un fichier par mois, nommé `AAAA-MM.csv` (ex. `2026-10.csv`).
+⚠️ **Ce dépôt est public : n'y déposez jamais de relevé bancaire.** Les fichiers `.csv` de ce dossier
+sont ignorés par git par sécurité.
+
+Lancez la comptabilité sur votre ordinateur :
+
+```bash
+npm run agent:compta -- --mois 2026-10 --releve chemin/vers/export.csv
+```
 
 - Colonnes reconnues : `Date`, `Libellé`, et soit `Montant` (négatif = dépense), soit `Débit` / `Crédit`.
 - Séparateur `;` ou `,`, montants « 1 234,56 » acceptés.
-- ⚠️ Ce dépôt doit rester **privé** : ces fichiers contiennent vos données bancaires.
-- Pour ne rien stocker sur GitHub, lancez plutôt l'agent sur votre ordinateur :
-  `npm run agent:compta -- --mois 2026-10 --releve chemin/vers/export.csv`
+- Le rapport est écrit dans `sorties/compta/AAAA-MM/` (lui aussi ignoré par git).
+- Le workflow automatique « Agent comptabilité » ne fonctionne que si le dépôt redevient privé.

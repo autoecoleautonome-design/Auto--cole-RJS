@@ -10,3 +10,5 @@ sorties/
 etat/
 *.log
 .DS_Store
+# Relevés bancaires : jamais publiés (le dépôt est public)
+compta/releves/*.csv

@@ -3,8 +3,13 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { resolve, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderAvisList } from "./src/build/avis.js";
+import { prefixBase } from "./src/build/base.js";
 
 const root = dirname(fileURLToPath(import.meta.url));
+
+// Chemin de base : "/" pour un domaine (Netlify, autoecoleautonome.fr),
+// "/Auto--cole-RJS/" pour GitHub Pages (fourni par le workflow pages.yml).
+const base = process.env.BASE_PATH || "/";
 
 // Toutes les pages .html à la racine sont des points d'entrée (site multi-pages).
 const pages = Object.fromEntries(
@@ -50,6 +55,14 @@ function partials() {
   };
 }
 
+/** Ajoute le chemin de base aux liens internes une fois le HTML assemblé. */
+function baseLinks() {
+  return {
+    name: "autonome-base-links",
+    transformIndexHtml: { order: "post", handler: (html) => prefixBase(html, base) },
+  };
+}
+
 /**
  * En développement, sert /api/chat avec le même gestionnaire que la fonction
  * Netlify (agents/faq/handler.js), réponses en streaming comprises.
@@ -58,7 +71,7 @@ function apiDev() {
   return {
     name: "autonome-api-dev",
     configureServer(server) {
-      server.middlewares.use("/api/chat", async (req, res) => {
+      server.middlewares.use(`${base}api/chat`, async (req, res) => {
         const { handleChat } = await server.ssrLoadModule("/agents/faq/handler.js");
         const chunks = [];
         for await (const c of req) chunks.push(c);
@@ -84,7 +97,8 @@ function apiDev() {
 }
 
 export default defineConfig({
-  plugins: [partials(), apiDev()],
+  base,
+  plugins: [partials(), baseLinks(), apiDev()],
   build: {
     rollupOptions: { input: pages },
     chunkSizeWarningLimit: 900,

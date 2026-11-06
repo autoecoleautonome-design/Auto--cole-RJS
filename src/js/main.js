@@ -127,7 +127,7 @@ form?.addEventListener("submit", async (e) => {
   const status = $("[data-form-status]", form);
   const data = new FormData(form);
   try {
-    const res = await fetch("/", {
+    const res = await fetch(import.meta.env.BASE_URL, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(data).toString(),
@@ -182,7 +182,7 @@ function initParcours(root) {
 
 async function renderAnnonces(root) {
   try {
-    const res = await fetch("/data/annonces.json", { cache: "no-cache" });
+    const res = await fetch(`${import.meta.env.BASE_URL}data/annonces.json`, { cache: "no-cache" });
     if (!res.ok) throw new Error();
     const data = await res.json();
     const limit = Number(root.dataset.limit || 99);

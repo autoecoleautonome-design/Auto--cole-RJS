@@ -1,0 +1,78 @@
+name: Site sur GitHub Pages
+
+# Construit le site (Vite) puis le publie sur GitHub Pages.
+# Prérequis (une seule fois) : Settings > Pages > Source : « GitHub Actions ».
+on:
+  push:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.pages.outputs.deploy }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Dernière version de la branche (inclut les annonces publiées par l'agent planning)
+          ref: ${{ github.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Lire la configuration GitHub Pages
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          info=$(gh api "repos/$GITHUB_REPOSITORY/pages" 2>/dev/null || echo '{}')
+          type=$(echo "$info" | jq -r '.build_type // ""')
+          url=$(echo "$info" | jq -r '.html_url // ""')
+          base=$(echo "$url" | sed -E 's#^https?://[^/]+##')
+          [ -z "$base" ] && base="/${GITHUB_REPOSITORY#*/}/"
+          case "$base" in */) ;; *) base="$base/" ;; esac
+          defaut=$(gh api "repos/$GITHUB_REPOSITORY" --jq .default_branch)
+          deploy=false
+          if [ "$type" = "workflow" ] && [ "$GITHUB_REF_NAME" = "$defaut" ]; then deploy=true; fi
+          echo "deploy=$deploy" >> "$GITHUB_OUTPUT"
+          echo "type=$type" >> "$GITHUB_OUTPUT"
+          echo "base=$base" >> "$GITHUB_OUTPUT"
+          echo "Adresse du site : $url (chemin de base $base)"
+          if [ "$type" != "workflow" ]; then
+            echo "::warning::GitHub Pages publie encore les fichiers bruts. Dans Settings > Pages, choisissez Source : « GitHub Actions », puis relancez ce workflow."
+          fi
+
+      - name: Construire le site
+        env:
+          BASE_PATH: ${{ vars.BASE_PATH || steps.pages.outputs.base }}
+          VITE_CHAT_API: ${{ vars.VITE_CHAT_API }}
+        run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outputs.deploy == 'true'
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    # Publie seulement depuis la branche principale, et si Pages est réglé sur « GitHub Actions »
+    if: needs.build.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,6 +1,20 @@
 // Widget « Le Copilote » : discute avec l'agent IA (POST /api/chat, réponse en streaming SSE).
 
 const STORE = "copilote-historique";
+// Adresse de l'agent IA. Par défaut la fonction du site (Netlify) ; sur un hébergement
+// statique (GitHub Pages), on peut pointer vers une fonction hébergée ailleurs avec
+// VITE_CHAT_API. Si elle ne répond pas, le Copilote répond depuis la base locale.
+const API = import.meta.env.VITE_CHAT_API || `${import.meta.env.BASE_URL}api/chat`;
+let apiDown = false;
+
+/** Réponse sans serveur : recherche dans la base de connaissances embarquée. */
+async function localAnswer(question) {
+  const [{ fallbackAnswer }, { default: md }] = await Promise.all([
+    import("../../agents/faq/search.js"),
+    import("../../content/connaissances.md?raw"),
+  ]);
+  return fallbackAnswer(question, md);
+}
 const MAX_TURNS = 12;
 
 export function initCopilote(root) {
@@ -49,12 +63,16 @@ export function initCopilote(root) {
     out.classList.add("msg--typing");
     let text = "";
     try {
-      const res = await fetch("/api/chat", {
+      if (apiDown) throw new Error("API indisponible");
+      const res = await fetch(API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: history.slice(-MAX_TURNS) }),
       });
-      if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok || !res.body || !(res.headers.get("content-type") || "").includes("event-stream")) {
+        if (res.status !== 429) apiDown = true;
+        throw new Error(`HTTP ${res.status}`);
+      }
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let buf = "";
@@ -76,9 +94,17 @@ export function initCopilote(root) {
       history.push({ role: "assistant", content: text });
       save();
     } catch {
-      history.pop();
-      out.textContent =
-        "Le Copilote est momentanément indisponible. Appelez l'agence au 04 74 62 38 62 ou écrivez à autoecole.autonome@gmail.com.";
+      try {
+        if (text) throw new Error("réponse partielle");
+        text = await localAnswer(question);
+        out.textContent = text;
+        history.push({ role: "assistant", content: text });
+        save();
+      } catch {
+        history.pop();
+        out.textContent =
+          "Le Copilote est momentanément indisponible. Appelez l'agence au 04 74 62 38 62 ou écrivez à autoecole.autonome@gmail.com.";
+      }
     } finally {
       out.classList.remove("msg--typing");
       busy = false;

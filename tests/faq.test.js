@@ -34,3 +34,13 @@ test("handleChat renvoie un flux SSE (mode sans clé)", async () => {
   const bad = await handleChat(new Request("http://x/api/chat", { method: "GET" }));
   assert.equal(bad.status, 405);
 });
+
+test("CORS : seule une origine autorisée reçoit les en-têtes", async () => {
+  process.env.ALLOWED_ORIGINS = "https://autoecoleautonome-design.github.io";
+  const ok = await handleChat(new Request("http://x/api/chat", { method: "OPTIONS", headers: { origin: "https://autoecoleautonome-design.github.io" } }));
+  assert.equal(ok.status, 204);
+  assert.equal(ok.headers.get("access-control-allow-origin"), "https://autoecoleautonome-design.github.io");
+  const ko = await handleChat(new Request("http://x/api/chat", { method: "OPTIONS", headers: { origin: "https://pirate.example" } }));
+  assert.equal(ko.headers.get("access-control-allow-origin"), null);
+  delete process.env.ALLOWED_ORIGINS;
+});

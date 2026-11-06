@@ -37,14 +37,28 @@ npm run dev
 
 Puis ouvrir http://localhost:5173.
 
-## Mise en ligne (Netlify, gratuit)
+## Mise en ligne
 
+### GitHub Pages (gratuit, déjà activé)
+Le site doit être **construit** avant d'être publié : GitHub Pages ne doit donc pas publier les fichiers bruts de la branche.
+
+1. Ouvrez *Settings → Pages* du dépôt : https://github.com/autoecoleautonome-design/Auto--cole-RJS/settings/pages
+2. Dans *Build and deployment → Source*, choisissez **GitHub Actions** (au lieu de « Deploy from a branch »).
+3. Onglet *Actions* → workflow « Site sur GitHub Pages » → *Run workflow*. Ensuite, chaque modification poussée est publiée automatiquement.
+
+Adresse : https://autoecoleautonome-design.github.io/Auto--cole-RJS/ (ou votre domaine si vous en branchez un dans *Settings → Pages → Custom domain* ;
+le chemin s'adapte tout seul).
+
+Sur GitHub Pages, il n'y a pas de serveur : le Copilote répond alors en cherchant dans la base de connaissances
+(`content/connaissances.md`), sans IA. Pour des réponses rédigées par Claude, hébergez en plus la fonction sur Netlify (ci-dessous),
+puis dans *Settings → Secrets and variables → Actions → Variables*, ajoutez `VITE_CHAT_API` = `https://<votre-site>.netlify.app/api/chat`
+et, sur Netlify, la variable `ALLOWED_ORIGINS` = `https://autoecoleautonome-design.github.io`.
+
+### Netlify (site + IA au même endroit)
 1. Sur [app.netlify.com](https://app.netlify.com) : *Add new site* → *Import an existing project* → GitHub → ce dépôt.
    Les réglages de build sont lus dans `netlify.toml`.
 2. *Site configuration → Environment variables* : ajouter `ANTHROPIC_API_KEY` (clé créée sur [console.anthropic.com](https://console.anthropic.com)).
-   Sans clé, le Copilote répond quand même, en citant la bonne rubrique de la base de connaissances.
-3. *Domain management* : brancher le domaine `autoecoleautonome.fr` (puis le retirer de l'ancien hébergeur ORATA).
-4. *Forms* : activer les notifications par e-mail du formulaire « contact ».
+3. *Domain management* : brancher `autoecoleautonome.fr`. *Forms* : activer les notifications du formulaire « contact ».
 
 ## Les agents
 
@@ -93,11 +107,14 @@ Dans *Settings → Secrets and variables → Actions* du dépôt, ajouter :
 | `ANTHROPIC_API_KEY` | Clé Claude |
 | `PLANNING_ICS_URL` | Adresse secrète iCal de l'agenda Google (*Paramètres de l'agenda → Adresse secrète au format iCal*) |
 | `PLANNING_EQUIPE_EMAIL` | Destinataire du brief de l'équipe |
+| `PLANNING_ETAT_CLE` | Mot de passe long et aléatoire : chiffre le planning gardé d'une semaine à l'autre (indispensable, le dépôt étant public) |
 | `COMPTA_DESTINATAIRE` | Destinataire du rapport comptable |
 | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` | Envoi des e-mails (Gmail : `smtp.gmail.com`, `465`, mot de passe d'application) |
 
 Les workflows planifiés ne tournent que sur la branche principale (`main`) : fusionnez ce travail dans `main` pour les activer.
-Pour la compta, déposez chaque mois le relevé dans `compta/releves/AAAA-MM.csv` (dépôt **privé** uniquement) ou lancez l'agent sur votre ordinateur.
+Le dépôt étant **public**, aucune donnée d'élève n'est conservée en clair sur GitHub : l'état du planning est chiffré,
+le brief et les e-mails sont seulement envoyés par e-mail. La comptabilité se lance **sur votre ordinateur** :
+ne déposez jamais de relevé bancaire dans le dépôt (les fichiers `compta/releves/*.csv` sont ignorés par git).
 
 ## Claude Code : skills installés
 
