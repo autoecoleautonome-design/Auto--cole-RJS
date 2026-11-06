@@ -1,0 +1,139 @@
+# Auto-École Autonome : nouveau site et agents IA
+
+Nouveau site de l'Auto-École Autonome (Villefranche-sur-Saône), qui reprend tout le contenu de l'ancien site
+www.autoecoleautonome.fr, et trois agents IA (Claude) qui automatisent une partie du travail de l'agence.
+
+| | Ce que ça fait | Quand |
+|---|---|---|
+| **Le Copilote** | Répond aux questions des élèves et des parents, 24h/24, dans une bulle de discussion sur le site | En continu |
+| **Agent planning** | Récapitulatif de la semaine, annonces des changements sur le site, brief de l'équipe, e-mail personnel à chaque élève | Lundi 6h + chaque soir du mardi au samedi |
+| **Agent comptable** | Classe les opérations du relevé bancaire, calcule CA, charges, résultat et TVA estimée, rédige une analyse | Le 2 de chaque mois |
+
+## Le site
+
+- **Concept graphique** : la signalisation routière française. Le bleu des panneaux d'indication pour l'information,
+  le rouge de la voiture de l'école pour les actions, le jaune de la signalisation temporaire pour les changements de planning.
+- **Animation 3D** (Three.js) : la voiture rouge de l'école, enseigne « AUTO-ÉCOLE » sur le toit, roule de nuit sur une route
+  bordée de lampadaires et de panneaux ; la caméra suit la souris et plonge quand on fait défiler la page.
+- **Panneau du jour** : un panneau en 3D qu'on peut faire tourner, avec une question de code (11 panneaux).
+- **Slides dynamiques** : formations (cartes inclinables en 3D), parcours en 6 étapes avec une voiture qui avance,
+  avis d'élèves en défilement automatique, galerie photos. Glisser à la souris ou au doigt, flèches, clavier.
+- **Pages** : accueil, formations, code, financement (CPF, 1 €/jour), inscription, examen, planning, avis (84 avis du livre d'or),
+  label qualité (13 documents PDF), contact (carte, formulaire), mentions légales, page 404.
+- Accessible (clavier, lecteurs d'écran, animations réduites si demandé), adapté au mobile, référencement local (JSON-LD),
+  redirections des anciennes adresses (`netlify.toml`).
+
+Aperçu en local :
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+Puis ouvrir http://localhost:5173.
+
+## Mise en ligne (Netlify, gratuit)
+
+1. Sur [app.netlify.com](https://app.netlify.com) : *Add new site* → *Import an existing project* → GitHub → ce dépôt.
+   Les réglages de build sont lus dans `netlify.toml`.
+2. *Site configuration → Environment variables* : ajouter `ANTHROPIC_API_KEY` (clé créée sur [console.anthropic.com](https://console.anthropic.com)).
+   Sans clé, le Copilote répond quand même, en citant la bonne rubrique de la base de connaissances.
+3. *Domain management* : brancher le domaine `autoecoleautonome.fr` (puis le retirer de l'ancien hébergeur ORATA).
+4. *Forms* : activer les notifications par e-mail du formulaire « contact ».
+
+## Les agents
+
+### Le Copilote (questions des élèves)
+- Code : `agents/faq/`. Il répond **uniquement** à partir de `content/connaissances.md` et des annonces de la semaine.
+- Il n'invente ni tarif, ni date, ni horaire : sinon il renvoie vers le 04 74 62 38 62.
+- Tester dans le terminal :
+
+```bash
+npm run agent:faq -- "Puis-je payer mon permis avec le CPF ?"
+```
+
+### Agent planning
+- Source : l'agenda Google de l'agence (adresse secrète iCal) ou un export CSV.
+  Convention dans Google Agenda : titre « Conduite - Prénom Nom », « Code en salle », « Examen - Prénom Nom », « Fermeture » ;
+  dans la description, une ligne `email: …` et une ligne `moniteur: …`.
+- Il compare avec le passage précédent, puis :
+  1. publie sur le site (`public/data/annonces.json`) un résumé **sans aucun nom d'élève** ;
+  2. rédige le brief de l'équipe (charge par enseignant, examens, annulations à recaser) ;
+  3. prépare un e-mail personnel à chaque élève concerné (horaires insérés par le code, pas par l'IA).
+- Essai avec les exemples fournis :
+
+```bash
+npm run agent:planning -- --mode recap --csv exemples/planning-v1.csv --date 2026-11-08
+```
+
+```bash
+npm run agent:planning -- --mode changements --csv exemples/planning-v2.csv --date 2026-11-09
+```
+
+### Agent comptable
+- Entrée : l'export CSV du relevé bancaire du mois.
+- Classement par règles (URSSAF, CPF, carburant, loyer…), Claude pour les libellés inconnus ; les totaux sont **calculés par le code**.
+- Sorties dans `sorties/compta/AAAA-MM/` : `rapport.md`, `journal.csv` (Excel), `synthese.json`. Comparaison avec le mois précédent.
+- Outil de pilotage : à valider avec votre expert-comptable (taux de TVA et comptes par défaut dans `agents/compta/categories.js`).
+
+```bash
+npm run agent:compta -- --mois 2026-10 --releve exemples/releve-2026-10.csv
+```
+
+### Automatisation GitHub Actions
+Dans *Settings → Secrets and variables → Actions* du dépôt, ajouter :
+
+| Secret | Rôle |
+|---|---|
+| `ANTHROPIC_API_KEY` | Clé Claude |
+| `PLANNING_ICS_URL` | Adresse secrète iCal de l'agenda Google (*Paramètres de l'agenda → Adresse secrète au format iCal*) |
+| `PLANNING_EQUIPE_EMAIL` | Destinataire du brief de l'équipe |
+| `COMPTA_DESTINATAIRE` | Destinataire du rapport comptable |
+| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` | Envoi des e-mails (Gmail : `smtp.gmail.com`, `465`, mot de passe d'application) |
+
+Les workflows planifiés ne tournent que sur la branche principale (`main`) : fusionnez ce travail dans `main` pour les activer.
+Pour la compta, déposez chaque mois le relevé dans `compta/releves/AAAA-MM.csv` (dépôt **privé** uniquement) ou lancez l'agent sur votre ordinateur.
+
+## Claude Code : skills installés
+
+Dans `.claude/skills/`, chargés automatiquement quand vous ouvrez ce dépôt avec Claude Code :
+
+- **Métier (créés pour l'auto-école)** : `planning-semaine`, `compta-du-mois`, `mettre-a-jour-infos`, `repondre-aux-eleves`
+  (brouillons de réponse dans Gmail à partir de la base de connaissances).
+- **Superpowers** (ingénierie, licence MIT, [obra/superpowers](https://github.com/obra/superpowers)) : brainstorming, writing-plans,
+  executing-plans, test-driven-development, systematic-debugging, verification-before-completion, requesting/receiving-code-review,
+  subagent-driven-development, dispatching-parallel-agents, using-git-worktrees, finishing-a-development-branch, writing-skills…
+- **Anthropic** (licence Apache 2.0, [anthropics/skills](https://github.com/anthropics/skills)) : frontend-design, webapp-testing,
+  mcp-builder, skill-creator, claude-api, theme-factory, internal-comms, web-artifacts-builder.
+- Les skills Word, Excel, PowerPoint et PDF d'Anthropic ne sont pas redistribuables : ils sont déjà intégrés à Claude
+  (claude.ai et Claude Code). Pour recevoir les mises à jour de Superpowers, vous pouvez aussi l'installer en plugin :
+  `/plugin marketplace add obra/superpowers-marketplace` puis `/plugin install superpowers@superpowers-marketplace`.
+
+Exemples de demandes à Claude Code : « fais la compta d'octobre avec ce relevé », « prépare le planning de la semaine »,
+« l'agence sera fermée le 24 décembre, mets le site à jour », « réponds aux mails des élèves ».
+
+## À vérifier avant la mise en ligne
+
+- **Horaires du bureau** : l'ancien site affichait trois versions différentes. J'ai retenu celle du document officiel
+  « Modalités d'organisation 2025 » (mardi 15h–19h, mercredi à vendredi 14h–19h). À confirmer.
+- **SIRET** : l'ancien site affiche « 841914195000148 » (15 chiffres, un de trop). Seul le SIREN 841 914 195 est publié.
+- **Tarifs** : absents de l'ancien site ; le site et le Copilote indiquent « sur devis ».
+- **Photos** : seules les photos propres à l'auto-école ont été reprises (agence, voiture, salle de code, affiches).
+  Les images génériques du prestataire ORATA, protégées par ses droits, n'ont pas été copiées. Des photos de l'équipe
+  remplaceraient avantageusement les initiales.
+- **Mentions légales** : indiquer l'hébergeur définitif.
+
+## Développement
+
+```bash
+npm test
+```
+
+```bash
+npm run build
+```
+
+Structure détaillée et règles : voir `CLAUDE.md`.

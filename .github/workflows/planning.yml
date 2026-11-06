@@ -1,0 +1,87 @@
+name: Agent planning
+
+# Lundi 6h (heure de Paris en hiver) : récapitulatif de la semaine.
+# Du mardi au samedi 18h : annonce des changements depuis le dernier passage.
+on:
+  schedule:
+    - cron: "0 5 * * 1"
+    - cron: "0 17 * * 2-6"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "recap ou changements"
+        default: recap
+        required: true
+      envoyer:
+        description: "Envoyer réellement les e-mails (true/false)"
+        default: "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agent-planning
+
+jobs:
+  planning:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      # L'état du planning précédent (avec noms d'élèves) reste dans le cache privé d'Actions, jamais dans git.
+      - name: Restaurer le planning précédent
+        uses: actions/cache/restore@v4
+        with:
+          path: etat
+          key: planning-etat-${{ github.run_id }}
+          restore-keys: planning-etat-
+
+      - name: Lancer l'agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PLANNING_ICS_URL: ${{ secrets.PLANNING_ICS_URL }}
+          PLANNING_EQUIPE_EMAIL: ${{ secrets.PLANNING_EQUIPE_EMAIL }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+        run: |
+          MODE="${{ github.event.inputs.mode }}"
+          if [ -z "$MODE" ]; then
+            if [ "${{ github.event.schedule }}" = "0 5 * * 1" ]; then MODE=recap; else MODE=changements; fi
+          fi
+          ENVOI="--envoyer"
+          if [ "${{ github.event.inputs.envoyer }}" = "false" ]; then ENVOI=""; fi
+          node agents/planning/cli.js --mode "$MODE" $ENVOI
+
+      - name: Sauvegarder le planning de référence
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: etat
+          key: planning-etat-${{ github.run_id }}
+
+      - name: Publier les annonces sur le site
+        run: |
+          if ! git diff --quiet -- public/data/annonces.json; then
+            git config user.name "agent-planning"
+            git config user.email "agent-planning@users.noreply.github.com"
+            git add public/data/annonces.json
+            git commit -m "Planning : annonces de la semaine"
+            git push
+          else
+            echo "Pas de changement à publier."
+          fi
+
+      - name: Conserver le brief et les e-mails (privé, 30 jours)
+        uses: actions/upload-artifact@v4
+        with:
+          name: planning-${{ github.run_id }}
+          path: sorties/planning
+          retention-days: 30

@@ -1,0 +1,51 @@
+name: Agent comptabilité
+
+# Le 2 de chaque mois à 7h : synthèse du mois précédent,
+# à partir de compta/releves/AAAA-MM.csv (relevé bancaire déposé dans ce dépôt PRIVÉ).
+on:
+  schedule:
+    - cron: "0 6 2 * *"
+  workflow_dispatch:
+    inputs:
+      mois:
+        description: "Mois à traiter (AAAA-MM). Vide = mois précédent."
+        required: false
+
+jobs:
+  compta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Déterminer le mois
+        id: m
+        run: |
+          M="${{ github.event.inputs.mois }}"
+          if [ -z "$M" ]; then M=$(TZ=Europe/Paris date -d "$(date +%Y-%m-01) -1 day" +%Y-%m); fi
+          echo "mois=$M" >> "$GITHUB_OUTPUT"
+          if [ ! -f "compta/releves/$M.csv" ]; then
+            echo "::warning::Relevé compta/releves/$M.csv absent : déposez-le puis relancez le workflow."
+            echo "absent=1" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Lancer l'agent comptable
+        if: steps.m.outputs.absent != '1'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          COMPTA_DESTINATAIRE: ${{ secrets.COMPTA_DESTINATAIRE }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+        run: node agents/compta/cli.js --mois "${{ steps.m.outputs.mois }}" --envoyer
+      - name: Rapport (privé, 90 jours)
+        if: steps.m.outputs.absent != '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: compta-${{ steps.m.outputs.mois }}
+          path: sorties/compta/${{ steps.m.outputs.mois }}
+          retention-days: 90

@@ -1,0 +1,56 @@
+{
+  "semaine": {
+    "debut": "2026-11-09",
+    "fin": "2026-11-15",
+    "debut_fr": "lundi 9 novembre",
+    "fin_fr": "dimanche 15 novembre",
+    "label": "2026-S46"
+  },
+  "genere_le": "2026-11-06T19:27:26.766Z",
+  "genere_le_fr": "vendredi 6 novembre à 20h27",
+  "genere_par": "agent planning (modèle de texte)",
+  "resume": "Au programme cette semaine : 10 leçons de conduite et 2 passages d'examen. 3 changements concernent l'agence ou les cours collectifs, détaillés ci-dessous.",
+  "annonces": [
+    {
+      "type": "changement",
+      "titre": "Cours de code en salle annulé",
+      "texte": "Mercredi 11 novembre de 17h à 19h : la séance n'aura pas lieu. Jour férié."
+    },
+    {
+      "type": "changement",
+      "titre": "Agence fermée (11 Novembre, jour férié)",
+      "texte": "Mercredi 11 novembre. Pas de leçon ni de cours de code."
+    },
+    {
+      "type": "changement",
+      "titre": "Cours de code en salle (exceptionnel)",
+      "texte": "Jeudi 12 novembre de 17h à 19h. Remplace le cours du mercredi, réservation à l'accueil."
+    }
+  ],
+  "evenements": [
+    {
+      "jour": "mercredi 11 novembre",
+      "date": "2026-11-11",
+      "horaire": "Toute la journée",
+      "titre": "Agence fermée (11 Novembre, jour férié)",
+      "statut": "confirmé",
+      "note": "Pas de leçon ni de cours de code"
+    },
+    {
+      "jour": "mercredi 11 novembre",
+      "date": "2026-11-11",
+      "horaire": "17h–19h",
+      "titre": "Cours de code en salle",
+      "statut": "annulé",
+      "note": "Jour férié"
+    },
+    {
+      "jour": "jeudi 12 novembre",
+      "date": "2026-11-12",
+      "horaire": "17h–19h",
+      "titre": "Cours de code en salle (exceptionnel)",
+      "statut": "confirmé",
+      "note": "Remplace le cours du mercredi, réservation à l'accueil"
+    }
+  ]
+}

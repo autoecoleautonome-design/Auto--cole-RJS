@@ -1,0 +1,30 @@
+<div class="copilote" data-copilote>
+  <button class="copilote__fab" type="button" aria-expanded="false" aria-controls="copilote-panel" data-copilote-toggle>
+    <span class="copilote__wheel" aria-hidden="true"></span>
+    <span class="copilote__label">Une question&nbsp;?</span>
+  </button>
+  <section class="copilote__panel" id="copilote-panel" role="dialog" aria-label="Le Copilote, assistant IA de l'auto-école" hidden>
+    <header class="copilote__head">
+      <div>
+        <strong>Le Copilote</strong>
+        <small>Assistant IA de l'Auto-École Autonome</small>
+      </div>
+      <button type="button" class="copilote__close" aria-label="Fermer" data-copilote-close>×</button>
+    </header>
+    <div class="copilote__log" data-copilote-log aria-live="polite">
+      <div class="msg msg--bot">Bonjour&nbsp;! Je réponds à vos questions sur les formations, le code, le financement, les horaires ou l'inscription. 🚗</div>
+    </div>
+    <div class="copilote__chips" data-copilote-chips>
+      <button type="button">Quels documents pour m'inscrire&nbsp;?</button>
+      <button type="button">Puis-je payer avec mon CPF&nbsp;?</button>
+      <button type="button">Comment annuler une leçon&nbsp;?</button>
+      <button type="button">Quand ont lieu les cours de code&nbsp;?</button>
+    </div>
+    <form class="copilote__form" data-copilote-form>
+      <label class="sr-only" for="copilote-input">Votre question</label>
+      <input id="copilote-input" name="q" autocomplete="off" maxlength="600" placeholder="Posez votre question…" required />
+      <button type="submit" class="btn btn--red btn--small">Envoyer</button>
+    </form>
+    <p class="copilote__legal">Réponses générées par IA à partir des informations de l'auto-école. Ne saisissez pas de données personnelles sensibles. En cas de doute&nbsp;: 04 74 62 38 62.</p>
+  </section>
+</div>

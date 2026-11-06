@@ -1,0 +1,76 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"
+  # Fichiers lus par l'agent au moment de répondre
+  included_files = ["content/**", "public/data/**"]
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+# Redirections des adresses de l'ancien site
+[[redirects]]
+  from = "/permis-b-voiture.html"
+  to = "/formations.html#permis-b"
+  status = 301
+[[redirects]]
+  from = "/permis-aac-voiture.html"
+  to = "/formations.html#aac"
+  status = 301
+[[redirects]]
+  from = "/conduite-supervisee.html"
+  to = "/formations.html#cs"
+  status = 301
+[[redirects]]
+  from = "/les-permis.html"
+  to = "/formations.html"
+  status = 301
+[[redirects]]
+  from = "/post-permis.html"
+  to = "/formations.html#post-permis"
+  status = 301
+[[redirects]]
+  from = "/code-en-ligne.html"
+  to = "/code.html"
+  status = 301
+[[redirects]]
+  from = "/cpf-financement-permis.html"
+  to = "/financement.html#cpf"
+  status = 301
+[[redirects]]
+  from = "/permis-a-un-euro-par-jour.html"
+  to = "/financement.html#un-euro"
+  status = 301
+[[redirects]]
+  from = "/documents-a-fournir.html"
+  to = "/inscription.html"
+  status = 301
+[[redirects]]
+  from = "/label-qualite.html"
+  to = "/qualite.html"
+  status = 301
+[[redirects]]
+  from = "/galerie-photos.html"
+  to = "/formations.html"
+  status = 301
+[[redirects]]
+  from = "/livre-d-or.html"
+  to = "/avis.html"
+  status = 301
+[[redirects]]
+  from = "/resultat-permis-de-conduire.html"
+  to = "/examen.html"
+  status = 301
+[[redirects]]
+  from = "/nos-coordonnees.html"
+  to = "/contact.html"
+  status = 301

@@ -1,0 +1,14 @@
+id;date;debut;fin;type;titre;eleve;email;moniteur;statut;note
+c-1110-1;2026-11-10;08:00;08:55;conduite;;Léa Martin;lea.martin@exemple.fr;David;confirmé;
+c-1110-2;2026-11-10;09:00;09:55;conduite;;Hugo Bernard;hugo.bernard@exemple.fr;David;confirmé;
+c-1110-3;2026-11-10;14:00;14:55;conduite;;Inès Petit;ines.petit@exemple.fr;Bernadette;confirmé;
+c-1110-4;2026-11-10;17:00;17:55;conduite;;Yanis Robert;yanis.robert@exemple.fr;Toufik;confirmé;
+code-1111;2026-11-11;17:00;19:00;code;Cours de code en salle;;;Philippe;confirmé;Sur réservation à l'accueil
+c-1112-1;2026-11-12;10:00;10:55;conduite;;Léa Martin;lea.martin@exemple.fr;David;confirmé;
+c-1112-2;2026-11-12;15:00;15:55;conduite;;Sarah Dubois;sarah.dubois@exemple.fr;Bernadette;confirmé;
+c-1112-3;2026-11-12;16:00;16:55;conduite;;Inès Petit;ines.petit@exemple.fr;Bernadette;confirmé;
+ex-1113-1;2026-11-13;08:30;09:00;examen;Examen pratique;Hugo Bernard;hugo.bernard@exemple.fr;David;confirmé;Rendez-vous à l'agence à 7h45
+ex-1113-2;2026-11-13;09:00;09:30;examen;Examen pratique;Yanis Robert;yanis.robert@exemple.fr;Toufik;confirmé;Rendez-vous à l'agence à 8h15
+c-1113-1;2026-11-13;14:00;14:55;conduite;;Nora Lambert;nora.lambert@exemple.fr;Philippe;confirmé;
+c-1114-1;2026-11-14;08:00;08:55;conduite;;Sarah Dubois;sarah.dubois@exemple.fr;Toufik;confirmé;
+c-1114-2;2026-11-14;09:00;09:55;conduite;;Nora Lambert;nora.lambert@exemple.fr;Philippe;confirmé;

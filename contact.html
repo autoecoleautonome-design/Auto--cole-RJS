@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!-- @include head -->
+    <title>Contact et accès | Auto-École Autonome, 248 rue de la République, Villefranche</title>
+    <meta name="description" content="Auto-École Autonome, 248 rue de la République, 69400 Villefranche-sur-Saône. 04 74 62 38 62. À 450 m de la gare, bus 1, 2, 3, 4, 5, 7, 10 et 11, parking privé." />
+  </head>
+  <body>
+    <!-- @include header -->
+    <main id="contenu">
+      <section class="page-hero">
+        <div class="container">
+          <p class="breadcrumb"><a href="/">Accueil</a> / Contact</p>
+          <div class="panneau"><h1>Nous trouver</h1><p>248 rue de la République, Villefranche-sur-Saône</p></div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container split" style="align-items: start">
+          <div class="stack">
+            <div class="map" data-map role="region" aria-label="Carte de l'emplacement de l'auto-école"></div>
+            <div class="grid grid--2">
+              <div class="info"><h3>Accès</h3><p>À 450 m à pied de la gare. Bus 1, 2, 3, 4, 5, 7, 10 et 11. Parking privé, point de départ des leçons. Entrée accessible aux personnes à mobilité réduite.</p></div>
+              <div class="info"><h3>Coordonnées</h3><p><a href="tel:+33474623862">04 74 62 38 62</a><br /><a href="mailto:autoecole.autonome@gmail.com">autoecole.autonome@gmail.com</a><br />Agrément E 19 069 0001 0</p></div>
+            </div>
+            <dl class="hours fiche">
+              <dt>Lundi</dt><dd>Fermé</dd>
+              <dt>Mardi</dt><dd>10h–12h et 15h–19h</dd>
+              <dt>Mercredi</dt><dd>10h–12h et 14h–19h</dd>
+              <dt>Jeudi</dt><dd>10h–12h et 14h–19h</dd>
+              <dt>Vendredi</dt><dd>10h–12h et 14h–19h</dd>
+              <dt>Samedi</dt><dd>10h–13h</dd>
+            </dl>
+          </div>
+          <div>
+            <h2>Écrivez-nous</h2>
+            <p class="muted">Réponse sous 48 h ouvrées. Pour une question rapide, le Copilote répond tout de suite.</p>
+            <form class="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-contact-form>
+              <input type="hidden" name="form-name" value="contact" />
+              <p hidden><label>Ne pas remplir <input name="bot-field" /></label></p>
+              <label>Nom et prénom<input name="nom" required autocomplete="name" /></label>
+              <label>E-mail<input type="email" name="email" required autocomplete="email" /></label>
+              <label>Téléphone<input type="tel" name="telephone" autocomplete="tel" /></label>
+              <label>Objet
+                <select name="objet" required>
+                  <option value="">Choisissez</option>
+                  <option>Inscription</option>
+                  <option>Devis ou financement CPF</option>
+                  <option>Planning ou leçon</option>
+                  <option>Examen</option>
+                  <option>Autre demande</option>
+                </select>
+              </label>
+              <label>Message<textarea name="message" required></textarea></label>
+              <p class="small muted">Vos informations servent uniquement à répondre à votre demande. <a href="/mentions-legales.html#confidentialite">Politique de confidentialité</a>.</p>
+              <button class="btn btn--red" type="submit">Envoyer le message</button>
+              <p class="form__status" data-form-status role="status"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- @include footer -->
+  </body>
+</html>

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.netlify/
+.env
+.env.*
+!.env.example
+# Données personnelles et financières : jamais dans git
+data/prive/
+sorties/
+etat/
+*.log
+.DS_Store
