@@ -11,13 +11,15 @@ www.autoecoleautonome.fr, et trois agents IA (Claude) qui automatisent une parti
 
 ## Le site
 
-- **Concept graphique** : la signalisation routière française. Le bleu des panneaux d'indication pour l'information,
-  le rouge de la voiture de l'école pour les actions, le jaune de la signalisation temporaire pour les changements de planning.
-- **Animation 3D** (Three.js) : la voiture rouge de l'école, enseigne « AUTO-ÉCOLE » sur le toit, roule de nuit sur une route
-  bordée de lampadaires et de panneaux ; la caméra suit la souris et plonge quand on fait défiler la page.
+- **Style** inspiré des pages produit Apple et de Spotify : grande typographie (Inter / Inter Tight), fonds noirs et gris
+  clair, cartes très arrondies, navigation en verre dépoli, boutons pilule, rouge de la voiture-école en couleur d'accent.
+- **Animation 3D** (Three.js) : la voiture-école, enseigne « AUTO-ÉCOLE » sur le toit, tourne sur un plateau de studio ;
+  le défilement de la page pilote la rotation et la caméra, avec trois messages qui apparaissent tour à tour.
+- **Slides dynamiques** : rangée de formations en cartes colorées (façon Spotify), grille « bento » (façon Apple),
+  parcours en onglets, avis en bandeau défilant sur deux rangées, galerie photos. Glisser à la souris ou au doigt, flèches, clavier.
 - **Panneau du jour** : un panneau en 3D qu'on peut faire tourner, avec une question de code (11 panneaux).
-- **Slides dynamiques** : formations (cartes inclinables en 3D), parcours en 6 étapes avec une voiture qui avance,
-  avis d'élèves en défilement automatique, galerie photos. Glisser à la souris ou au doigt, flèches, clavier.
+- **Photos** : déposez vos images dans `public/images/site/` avec les noms indiqués dans
+  `public/images/site/LISEZMOI.md` ; elles s'affichent automatiquement (portraits de l'équipe, voiture, salle de code).
 - **Pages** : accueil, formations, code, financement (CPF, 1 €/jour), inscription, examen, planning, avis (84 avis du livre d'or),
   label qualité (13 documents PDF), contact (carte, formulaire), mentions légales, page 404.
 - Accessible (clavier, lecteurs d'écran, animations réduites si demandé), adapté au mobile, référencement local (JSON-LD),

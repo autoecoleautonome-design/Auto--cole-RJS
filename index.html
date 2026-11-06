@@ -6,13 +6,13 @@
     <meta name="description" content="Auto-école à Villefranche-sur-Saône, à 450 m de la gare. Permis B, boîte automatique, conduite accompagnée dès 15 ans, code en ligne et en salle. Certifiée Qualiopi, financement CPF." />
     <meta property="og:title" content="Auto-École Autonome, Villefranche-sur-Saône" />
     <meta property="og:description" content="Permis B, AAC, code, CPF. Quatre enseignants diplômés et un parking privé pour vos leçons." />
-    <meta property="og:image" content="/images/pub-audi.jpg" />
+    <meta property="og:image" content="/images/site/voiture.jpg" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "DrivingSchool",
         "name": "Auto-École Autonome",
-        "image": "/images/pub-audi.jpg",
+        "image": "/images/site/voiture.jpg",
         "telephone": "+33474623862",
         "email": "autoecole.autonome@gmail.com",
         "address": { "@type": "PostalAddress", "streetAddress": "248 rue de la République", "postalCode": "69400", "addressLocality": "Villefranche-sur-Saône", "addressCountry": "FR" },
@@ -31,83 +31,79 @@
   <body>
     <!-- @include header -->
     <main id="contenu">
-      <section class="hero" aria-labelledby="hero-title">
-        <canvas class="hero__canvas" data-hero3d aria-hidden="true"></canvas>
-        <div class="container hero__content">
-          <h1 id="hero-title">
-            <span class="line"><span>Prenez la route</span></span>
-            <span class="line"><span>en toute</span></span>
-            <span class="line"><span>autonomie.</span></span>
-          </h1>
-          <p class="lead">Auto-école au cœur de Villefranche-sur-Saône, à 450 m de la gare. Permis B, boîte automatique, conduite accompagnée dès 15 ans, avec quatre enseignants diplômés qui adaptent la formation à votre rythme.</p>
-          <div class="hero__cta">
-            <a class="btn btn--red" href="/inscription.html">Préparer mon inscription</a>
-            <button class="btn btn--ghost" type="button" data-open-copilote>Poser une question au Copilote</button>
+      <!-- 1. Récit au défilement : la voiture-école en 3D -->
+      <section class="story" data-story aria-labelledby="hero-title">
+        <div class="story__stage">
+          <canvas class="story__canvas" data-hero3d aria-hidden="true"></canvas>
+          <div class="container story__copy" data-story-copy>
+            <p class="eyebrow-red">Auto-École Autonome, Villefranche-sur-Saône</p>
+            <h1 id="hero-title">Le permis. En toute autonomie.</h1>
+            <p class="lead">Permis B, boîte automatique, conduite accompagnée dès 15 ans. Quatre enseignants diplômés, à 450 m de la gare.</p>
+            <div class="hero__cta">
+              <a class="btn btn--red" href="/inscription.html">S'inscrire</a>
+              <button class="btn btn--ghost" type="button" data-open-copilote>Poser une question</button>
+            </div>
           </div>
-          <ul class="hero__facts">
-            <li><span class="cartouche">Agrément E 19 069 0001 0</span></li>
-            <li><span class="cartouche cartouche--red">Certifiée Qualiopi</span></li>
-            <li><span class="cartouche">Éligible CPF</span></li>
-          </ul>
-        </div>
-        <p class="hero__hint" aria-hidden="true">Bougez la souris pour regarder autour de la voiture</p>
-      </section>
-
-      <section class="section" aria-labelledby="semaine-title">
-        <div class="container split" style="align-items: start">
-          <div>
-            <h2 id="semaine-title">Cette semaine à l'agence</h2>
-            <p class="muted">Récapitulatif publié chaque lundi par notre agent de planning : cours de code, fermetures, changements d'horaires. Vos leçons personnelles vous sont envoyées par e-mail.</p>
-            <a class="btn btn--blue mt-2" href="/planning.html">Voir le planning de la semaine</a>
+          <div class="story__captions" aria-hidden="true">
+            <p class="story__caption" data-at="0.28"><strong>Leçons de 55 minutes.</strong><span>Un bilan à chaque fin de séance.</span></p>
+            <p class="story__caption" data-at="0.52"><strong>Parking privé.</strong><span>On démarre et on débriefe au calme.</span></p>
+            <p class="story__caption" data-at="0.76"><strong>Financé par votre CPF.</strong><span>Auto-école certifiée Qualiopi.</span></p>
           </div>
-          <div data-annonces data-limit="3" aria-live="polite"><p>Chargement des annonces…</p></div>
+          <span class="story__scroll" aria-hidden="true"></span>
         </div>
       </section>
 
+      <!-- 2. Formations : rangée façon Spotify -->
       <section class="section section--dark" aria-labelledby="formations-title">
         <div class="container">
           <div class="section__head">
-            <h2 id="formations-title">Choisissez votre formation</h2>
-            <p>Faites glisser les cartes. Chaque forfait comprend l'évaluation de départ, le code en ligne et en salle pendant 6 mois et l'accompagnement à l'examen.</p>
+            <h2 id="formations-title">Choisissez votre formation.</h2>
+            <p>Chaque forfait comprend l'évaluation de départ, le code en ligne et en salle pendant 6 mois, et l'accompagnement à l'examen.</p>
           </div>
-          <div class="slider" data-slider style="--slide-w: min(340px, 82vw)">
+          <div class="slider" data-slider style="--slide-w: min(280px, 70vw)">
             <div class="slider__viewport">
               <div class="slider__track">
-                <a class="formation-card" data-tilt href="/formations.html#permis-b">
-                  <span class="formation-card__plate">B</span>
+                <a class="genre-card" style="--c: var(--c-b)" href="/formations.html#permis-b">
                   <h3>Permis B</h3>
-                  <p>La formule complète pour débuter : 20 leçons, bilans réguliers, examen dès 17 ans.</p>
-                  <span class="formation-card__meta"><span class="tag">Dès 17 ans</span><span class="tag">20 h minimum</span></span>
+                  <p>La formule complète pour débuter. Examen dès 17 ans.</p>
+                  <span class="genre-card__meta"><span class="tag">20 h minimum</span></span>
+                  <span class="genre-card__plate" aria-hidden="true">B</span>
+                  <span class="genre-card__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor" /></svg></span>
                 </a>
-                <a class="formation-card" data-tilt href="/formations.html#aac">
-                  <span class="formation-card__plate">AAC</span>
+                <a class="genre-card" style="--c: var(--c-aac)" href="/formations.html#aac">
                   <h3>Conduite accompagnée</h3>
-                  <p>Dès 15 ans : 20 leçons puis 3 000 km avec un proche. Probatoire réduit à 2 ans.</p>
-                  <span class="formation-card__meta"><span class="tag">Dès 15 ans</span><span class="tag">1 an minimum</span></span>
+                  <p>Dès 15 ans, 3 000 km avec un proche. Probatoire réduit à 2 ans.</p>
+                  <span class="genre-card__meta"><span class="tag">Dès 15 ans</span></span>
+                  <span class="genre-card__plate" aria-hidden="true">AAC</span>
+                  <span class="genre-card__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor" /></svg></span>
                 </a>
-                <a class="formation-card" data-tilt href="/formations.html#boite-auto">
-                  <span class="formation-card__plate">BEA</span>
+                <a class="genre-card" style="--c: var(--c-bea)" href="/formations.html#boite-auto">
                   <h3>Boîte automatique</h3>
-                  <p>Moins d'heures, moins de stress. Passerelle de 7 h vers la boîte manuelle après 3 mois.</p>
-                  <span class="formation-card__meta"><span class="tag">13 h minimum</span></span>
+                  <p>Moins d'heures, moins de stress. Passerelle de 7 h ensuite.</p>
+                  <span class="genre-card__meta"><span class="tag">13 h minimum</span></span>
+                  <span class="genre-card__plate" aria-hidden="true">BEA</span>
+                  <span class="genre-card__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor" /></svg></span>
                 </a>
-                <a class="formation-card" data-tilt href="/formations.html#cs">
-                  <span class="formation-card__plate">CS</span>
+                <a class="genre-card" style="--c: var(--c-cs)" href="/formations.html#cs">
                   <h3>Conduite supervisée</h3>
-                  <p>Pour les 18 ans et plus : gagnez de l'expérience avec un accompagnateur, à moindre coût.</p>
-                  <span class="formation-card__meta"><span class="tag">18 ans et plus</span></span>
+                  <p>Pour les 18 ans et plus : de l'expérience, à moindre coût.</p>
+                  <span class="genre-card__meta"><span class="tag">18 ans et plus</span></span>
+                  <span class="genre-card__plate" aria-hidden="true">CS</span>
+                  <span class="genre-card__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor" /></svg></span>
                 </a>
-                <a class="formation-card" data-tilt href="/formations.html#perfectionnement">
-                  <span class="formation-card__plate">+</span>
-                  <h3>Perfectionnement</h3>
-                  <p>Reprendre confiance, conduire sur neige, éco-conduite, permis étranger.</p>
-                  <span class="formation-card__meta"><span class="tag">Sur mesure</span></span>
+                <a class="genre-card" style="--c: var(--c-perf)" href="/formations.html#perfectionnement">
+                  <h3>Perfection&shy;nement</h3>
+                  <p>Reprendre confiance, neige, éco-conduite, permis étranger.</p>
+                  <span class="genre-card__meta"><span class="tag">Sur mesure</span></span>
+                  <span class="genre-card__plate" aria-hidden="true">+</span>
+                  <span class="genre-card__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor" /></svg></span>
                 </a>
-                <a class="formation-card" data-tilt href="/formations.html#post-permis">
-                  <span class="formation-card__plate">A</span>
+                <a class="genre-card" style="--c: var(--c-post)" href="/formations.html#post-permis">
                   <h3>Post-permis</h3>
-                  <p>7 h entre le 6e et le 12e mois pour réduire votre période probatoire.</p>
-                  <span class="formation-card__meta"><span class="tag">7 h en groupe</span></span>
+                  <p>7 h entre le 6e et le 12e mois pour réduire le probatoire.</p>
+                  <span class="genre-card__meta"><span class="tag">7 h en groupe</span></span>
+                  <span class="genre-card__plate" aria-hidden="true">A</span>
+                  <span class="genre-card__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor" /></svg></span>
                 </a>
               </div>
             </div>
@@ -115,96 +111,142 @@
         </div>
       </section>
 
-      <section class="section section--dark" aria-labelledby="parcours-title" style="padding-top: 0">
+      <!-- 3. Grille bento : pourquoi nous -->
+      <section class="section section--brume" aria-labelledby="pourquoi-title">
         <div class="container">
-          <div class="section__head">
-            <h2 id="parcours-title">Votre parcours, étape par étape</h2>
-            <p>De l'inscription à la fin de la période probatoire. Cliquez sur une borne pour le détail.</p>
+          <div class="section__head center reveal">
+            <h2 id="pourquoi-title">Tout est pensé pour réussir.</h2>
+            <p>Une agence à taille humaine, au cœur de Villefranche.</p>
           </div>
-          <div class="parcours" data-parcours>
-            <div class="parcours__road" aria-hidden="true"></div>
-            <svg class="parcours__car" viewBox="0 0 64 38" aria-hidden="true">
-              <rect x="4" y="12" width="56" height="16" rx="7" fill="#e30613" />
-              <path d="M16 13 L22 4 H42 L50 13 Z" fill="#111" />
-              <rect x="27" y="0" width="12" height="5" rx="1.5" fill="#e30613" />
-              <circle cx="16" cy="29" r="6" fill="#111" /><circle cx="48" cy="29" r="6" fill="#111" />
-              <circle cx="16" cy="29" r="2.5" fill="#ccc" /><circle cx="48" cy="29" r="2.5" fill="#ccc" />
-              <rect x="56" y="15" width="5" height="4" rx="1" fill="#fff6d0" />
-            </svg>
-            <ol class="parcours__steps">
-              <li class="parcours__step" data-step="inscription"><button type="button"><span class="borne">1</span><strong>Inscription</strong><small>Dossier et e-photo</small></button></li>
-              <li class="parcours__step" data-step="evaluation"><button type="button"><span class="borne">2</span><strong>Évaluation</strong><small>Sur ordinateur</small></button></li>
-              <li class="parcours__step" data-step="code"><button type="button"><span class="borne">3</span><strong>Code</strong><small>En ligne et en salle</small></button></li>
-              <li class="parcours__step" data-step="conduite"><button type="button"><span class="borne">4</span><strong>Conduite</strong><small>Leçons de 55 min</small></button></li>
-              <li class="parcours__step" data-step="examen"><button type="button"><span class="borne">5</span><strong>Examen</strong><small>20 points sur 30</small></button></li>
-              <li class="parcours__step" data-step="apres"><button type="button"><span class="borne">6</span><strong>Après le permis</strong><small>Post-permis</small></button></li>
-            </ol>
-            <div class="parcours__detail" data-parcours-detail aria-live="polite"></div>
-            <template data-for="inscription"><h3>Constituer le dossier</h3><p>Pièce d'identité, e-photo avec signature numérique, justificatif de domicile, JDC pour les 17–25 ans, ASSR 2. Soraya vous aide à créer votre dossier ANTS. <a href="/inscription.html">Liste complète des documents</a>.</p></template>
-            <template data-for="evaluation"><h3>Évaluation de départ</h3><p>Un test sur ordinateur estime le nombre d'heures dont vous aurez besoin. Vous recevez ensuite une proposition détaillée et chiffrée, sans surprise.</p></template>
-            <template data-for="code"><h3>Le code de la route</h3><p>150 séries en ligne 24h/24 pendant 6 mois, séries illimitées en agence et cours animés par un enseignant le mercredi de 17h à 19h (sur réservation). Examen : 35 bonnes réponses sur 40. <a href="/code.html">Les formules de code</a>.</p></template>
-            <template data-for="conduite"><h3>Les leçons de conduite</h3><p>Rendez-vous au parking privé de l'agence. Chaque leçon de 55 minutes commence par un point sur les compétences à travailler et se termine par un bilan. Annulation au moins 48 h ouvrées à l'avance.</p></template>
-            <template data-for="examen"><h3>L'examen pratique</h3><p>Un inspecteur évalue vos compétences : il faut au moins 20 points sur 30, sans faute éliminatoire. Le résultat arrive dès le lendemain sur RdvPermis. <a href="/examen.html">Résultat et certificat</a>.</p></template>
-            <template data-for="apres"><h3>Après le permis</h3><p>Entre le 6e et le 12e mois, la formation post-permis de 7 h réduit votre période probatoire d'un an (6 mois après une conduite accompagnée). <a href="/formations.html#post-permis">En savoir plus</a>.</p></template>
+          <div class="bento">
+            <article class="bento__tile bento__tile--photo span-4 row-2 reveal">
+              <figure class="media"><img src="/images/site/voiture.jpg" alt="La voiture rouge de l'Auto-École Autonome" loading="lazy" /></figure>
+              <h3>Une voiture récente, toujours prête.</h3>
+              <p>Rendez-vous au parking privé de l'agence, 248 rue de la République.</p>
+            </article>
+            <article class="bento__tile bento__tile--red span-2 reveal">
+              <span class="big">5/5</span>
+              <p>sur VroomVroom, et plus de 80 avis sur notre livre d'or.</p>
+            </article>
+            <article class="bento__tile bento__tile--dark span-2 reveal">
+              <span class="big">24/7</span>
+              <p>150 séries de code en ligne, avec un enseignant qui suit vos progrès.</p>
+            </article>
+            <article class="bento__tile span-3 reveal">
+              <span class="big">450 m</span>
+              <p>à pied de la gare de Villefranche. Bus 1, 2, 3, 4, 5, 7, 10 et 11.</p>
+            </article>
+            <article class="bento__tile bento__tile--photo span-3 reveal">
+              <figure class="media"><img src="/images/site/salle-code.jpg" alt="La salle de code de l'agence" loading="lazy" /></figure>
+              <h3>Le code en salle, le mercredi.</h3>
+              <p>Cours animé par un enseignant de 17h à 19h, sur réservation.</p>
+            </article>
+            <article class="bento__tile span-2 reveal">
+              <h3>Qualiopi et CPF.</h3>
+              <p>Votre permis peut être financé par votre Compte Personnel de Formation, ou à 1 € par jour.</p>
+              <p class="mt-2"><a class="link-arrow" href="/financement.html">Voir les financements</a></p>
+            </article>
+            <article class="bento__tile bento__tile--dark span-4 reveal">
+              <h3>Le Copilote répond à vos questions, à toute heure.</h3>
+              <p>Documents, horaires, CPF, conduite accompagnée : notre assistant IA connaît l'auto-école par cœur.</p>
+              <p class="mt-2"><button class="btn btn--white btn--small" type="button" data-open-copilote>Discuter avec le Copilote</button></p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section section--dark" aria-labelledby="quiz-title" style="padding-top: 0">
+      <!-- 4. Parcours en onglets -->
+      <section class="section section--dark" aria-labelledby="parcours-title">
+        <div class="container">
+          <div class="section__head center">
+            <h2 id="parcours-title">Votre parcours, étape par étape.</h2>
+            <p>De l'inscription à la fin de la période probatoire.</p>
+          </div>
+          <div class="parcours" data-parcours>
+            <ol class="parcours__steps">
+              <li class="parcours__step" data-step="inscription"><button type="button"><span class="borne">1</span><strong>Inscription</strong></button></li>
+              <li class="parcours__step" data-step="evaluation"><button type="button"><span class="borne">2</span><strong>Évaluation</strong></button></li>
+              <li class="parcours__step" data-step="code"><button type="button"><span class="borne">3</span><strong>Code</strong></button></li>
+              <li class="parcours__step" data-step="conduite"><button type="button"><span class="borne">4</span><strong>Conduite</strong></button></li>
+              <li class="parcours__step" data-step="examen"><button type="button"><span class="borne">5</span><strong>Examen</strong></button></li>
+              <li class="parcours__step" data-step="apres"><button type="button"><span class="borne">6</span><strong>Après le permis</strong></button></li>
+            </ol>
+            <div class="parcours__detail" data-parcours-detail aria-live="polite"></div>
+            <template data-for="inscription"><h3>Constituer le dossier.</h3><p>Pièce d'identité, e-photo, justificatif de domicile, JDC pour les 17–25 ans, ASSR 2. Soraya vous aide à créer votre dossier ANTS.</p><p><a class="link-arrow" href="/inscription.html">Liste complète des documents</a></p></template>
+            <template data-for="evaluation"><h3>Une évaluation de départ.</h3><p>Un test sur ordinateur estime le nombre d'heures dont vous aurez besoin. Vous recevez une proposition détaillée et chiffrée, sans surprise.</p></template>
+            <template data-for="code"><h3>Le code, à votre rythme.</h3><p>En ligne 24h/24, en agence, et en cours animé le mercredi de 17h à 19h. Examen : 35 bonnes réponses sur 40.</p><p><a class="link-arrow" href="/code.html">Les formules de code</a></p></template>
+            <template data-for="conduite"><h3>Les leçons de conduite.</h3><p>55 minutes, depuis le parking privé de l'agence. Chaque leçon commence par un point sur vos objectifs et se termine par un bilan.</p></template>
+            <template data-for="examen"><h3>Le jour de l'examen.</h3><p>Il faut au moins 20 points sur 30, sans faute éliminatoire. Le résultat arrive dès le lendemain sur RdvPermis.</p><p><a class="link-arrow" href="/examen.html">Résultat et certificat</a></p></template>
+            <template data-for="apres"><h3>Et après le permis.</h3><p>Entre le 6e et le 12e mois, 7 heures de formation post-permis réduisent votre période probatoire.</p><p><a class="link-arrow" href="/formations.html#post-permis">En savoir plus</a></p></template>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Équipe : cercles façon « artistes » -->
+      <section class="section" aria-labelledby="equipe-title">
+        <div class="container">
+          <div class="section__head center reveal">
+            <h2 id="equipe-title">Une équipe que nos élèves citent par son prénom.</h2>
+            <p>Quatre enseignants diplômés, et Soraya à l'accueil pour organiser vos leçons.</p>
+          </div>
+          <div class="artists">
+            <div class="artist reveal"><figure class="media is-empty" data-initial="S" data-photo="equipe-soraya.jpg"></figure><strong>Soraya</strong><span>Accueil et plannings</span></div>
+            <div class="artist reveal"><figure class="media is-empty" data-initial="P" data-photo="equipe-philippe.jpg"></figure><strong>Philippe</strong><span>Enseignant</span></div>
+            <div class="artist reveal"><figure class="media is-empty" data-initial="D" data-photo="equipe-david.jpg"></figure><strong>David</strong><span>Enseignant</span></div>
+            <div class="artist reveal"><figure class="media is-empty" data-initial="B" data-photo="equipe-bernadette.jpg"></figure><strong>Bernadette</strong><span>Enseignante</span></div>
+            <div class="artist reveal"><figure class="media is-empty" data-initial="T" data-photo="equipe-toufik.jpg"></figure><strong>Toufik</strong><span>Enseignant</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Cette semaine -->
+      <section class="section section--brume section--tight" aria-labelledby="semaine-title">
+        <div class="container split" style="align-items: start">
+          <div class="reveal">
+            <h2 id="semaine-title">Cette semaine à l'agence.</h2>
+            <p class="lead">Publié chaque lundi par notre agent de planning. Vos leçons personnelles vous sont envoyées par e-mail.</p>
+            <p class="mt-2"><a class="link-arrow" href="/planning.html">Tout le planning de la semaine</a></p>
+          </div>
+          <div data-annonces data-limit="3" aria-live="polite"><p class="muted">Chargement des annonces…</p></div>
+        </div>
+      </section>
+
+      <!-- 7. Panneau du jour -->
+      <section class="section section--dark" aria-labelledby="quiz-title">
         <div class="container quiz" data-quiz>
           <div class="quiz__sign" data-quiz-sign title="Faites tourner le panneau"></div>
           <div>
-            <h2 id="quiz-title">Le panneau du jour</h2>
-            <p class="lead" data-quiz-question></p>
+            <p class="eyebrow-red">Le panneau du jour</p>
+            <h2 id="quiz-title" data-quiz-question></h2>
             <div class="quiz__answers" data-quiz-answers></div>
             <p class="quiz__feedback" data-quiz-feedback aria-live="polite"></p>
-            <p><button class="btn btn--red" type="button" data-quiz-next hidden>Panneau suivant</button> <span class="muted">Score : <span data-quiz-score>0/0</span></span></p>
+            <p><button class="btn btn--white" type="button" data-quiz-next hidden>Panneau suivant</button> <span class="muted">Score : <span data-quiz-score>0/0</span></span></p>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="agence-title">
-        <div class="container split">
-          <div>
-            <h2 id="agence-title">Une agence à taille humaine</h2>
-            <p class="lead">Un local de 90 m² avec salle d'attente et salle de code, un parking privé pour démarrer et débriefer vos leçons au calme, et une équipe que nos élèves citent par leur prénom.</p>
-            <div class="team mt-2">
-              <div class="team__member"><span class="team__avatar" aria-hidden="true">S</span><strong>Soraya</strong><span class="muted">Accueil et plannings</span></div>
-              <div class="team__member"><span class="team__avatar" aria-hidden="true">P</span><strong>Philippe</strong><span class="muted">Enseignant</span></div>
-              <div class="team__member"><span class="team__avatar" aria-hidden="true">D</span><strong>David</strong><span class="muted">Enseignant</span></div>
-              <div class="team__member"><span class="team__avatar" aria-hidden="true">B</span><strong>Bernadette</strong><span class="muted">Enseignante</span></div>
-              <div class="team__member"><span class="team__avatar" aria-hidden="true">T</span><strong>Toufik</strong><span class="muted">Enseignant</span></div>
-            </div>
-          </div>
-          <figure class="photo">
-            <img src="/images/agence.jpg" alt="L'accueil de l'Auto-École Autonome, avec la fresque de voiture au mur" width="640" height="362" loading="lazy" />
-            <figcaption>L'accueil, 248 rue de la République. Bus 1, 2, 3, 4, 5, 7, 10 et 11.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="section section--beton" aria-labelledby="avis-title">
+      <!-- 8. Avis : bandeau défilant -->
+      <section class="section section--brume" aria-labelledby="avis-title">
         <div class="container">
-          <div class="section__head">
-            <h2 id="avis-title">Ils ont eu leur permis avec nous</h2>
-            <div class="score">
-              <div><strong>84</strong>avis sur notre livre d'or</div>
-              <div><strong>5/5</strong>sur VroomVroom</div>
-              <div><strong>4,8/5</strong>sur Bottin</div>
-            </div>
+          <div class="section__head center">
+            <h2 id="avis-title">Ils ont eu leur permis avec nous.</h2>
           </div>
-          <div class="slider slider--avis" data-autoplay="7000" style="--slide-w: min(360px, 84vw)">
-            <div class="slider__viewport"><div class="slider__track" data-avis-track></div></div>
+          <div class="score">
+            <div><strong>84</strong>avis sur le livre d'or</div>
+            <div><strong>5/5</strong>sur VroomVroom</div>
+            <div><strong>4,8/5</strong>sur Bottin</div>
           </div>
-          <p class="mt-2"><a href="/avis.html">Lire tous les avis</a></p>
         </div>
+        <div class="marquee" data-marquee aria-label="Avis d'élèves"></div>
+        <p class="center mt-2" style="text-align: center"><a class="link-arrow" href="/avis.html">Lire tous les avis</a></p>
       </section>
 
+      <!-- 9. Encart final -->
       <section class="cta-band">
         <div class="container cta-band__inner">
-          <h2>Financez votre permis avec le CPF ou 1 € par jour.</h2>
+          <h2>Votre permis, financé par le CPF ou à 1 € par jour.</h2>
           <div class="hero__cta" style="margin: 0">
-            <a class="btn btn--ghost" href="/financement.html">Voir les financements</a>
+            <a class="btn btn--white" href="/financement.html">Voir les financements</a>
             <a class="btn btn--ghost" href="tel:+33474623862">Appeler l'agence</a>
           </div>
         </div>

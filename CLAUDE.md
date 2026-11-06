@@ -5,8 +5,9 @@ Langue de travail : **français**. Le propriétaire n'est pas développeur : exp
 
 ## Structure
 - `index.html`, `formations.html`, … : pages du site (Vite multi-pages). Les blocs communs sont dans `src/partials/` et inclus via `<!-- @include nom -->`.
-- `src/css/main.css` : design (signalisation routière : bleu = information, rouge = action/obligation, jaune = changement).
-- `src/js/` : `hero3d.js` (scène Three.js), `quiz.js` (panneau 3D), `slider.js`, `chat.js` (widget du Copilote).
+- `src/css/main.css` : design inspiré d'Apple/Spotify (Inter, fonds noir/gris clair, cartes arrondies, rouge #e30613 en accent).
+- `public/images/site/` : photos du site, branchées automatiquement par nom (voir `LISEZMOI.md` du dossier).
+- `src/js/` : `hero3d.js` (voiture 3D en studio pilotée par le défilement), `quiz.js` (panneau 3D), `slider.js`, `chat.js` (widget du Copilote).
 - `content/connaissances.md` : **source unique de vérité** des informations de l'auto-école (horaires, formations, financement…). L'agent Copilote répond à partir de ce fichier.
 - `content/avis.json`, `content/quiz.json` : avis du livre d'or, questions du « panneau du jour ».
 - `agents/faq/` : agent « Questions des élèves » (`/api/chat`, fonction Netlify `netlify/functions/chat.mjs`).

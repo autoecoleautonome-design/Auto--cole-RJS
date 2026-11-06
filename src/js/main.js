@@ -1,10 +1,11 @@
 // Point d'entrée commun à toutes les pages.
-import { initSliders, Slider } from "./slider.js";
+import { initSliders } from "./slider.js";
 import { initCopilote } from "./chat.js";
 
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
 // Menu mobile
 const toggle = $("[data-nav-toggle]");
@@ -13,64 +14,85 @@ toggle?.addEventListener("click", () => {
   const open = toggle.getAttribute("aria-expanded") !== "true";
   toggle.setAttribute("aria-expanded", String(open));
   nav.classList.toggle("is-open", open);
+  document.body.style.overflow = open ? "hidden" : "";
 });
-
-// Barre de progression façon route
-const progress = $(".road-progress");
-const onScroll = () => {
-  const max = document.documentElement.scrollHeight - innerHeight;
-  progress?.style.setProperty("--p", max > 0 ? (scrollY / max).toFixed(4) : 0);
-};
-addEventListener("scroll", onScroll, { passive: true });
-onScroll();
 
 $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 
-// Hero 3D (chargé à la demande pour ne pas ralentir la page)
+// Récit au défilement de l'accueil : la scène 3D suit la progression dans la section
+const story = $("[data-story]");
 const heroCanvas = $("[data-hero3d]");
+const storyCopy = $("[data-story-copy]");
+const captions = $$(".story__caption");
+let hero = null;
 if (heroCanvas && webglOK()) {
   import("./hero3d.js")
-    .then(({ initHero3D }) => initHero3D(heroCanvas, { reducedMotion: reduced }))
+    .then(({ initHero3D }) => {
+      hero = initHero3D(heroCanvas, { reducedMotion: reduced });
+      onStory();
+    })
     .catch((e) => console.warn("3D indisponible", e));
 }
-
-// Cartes inclinables en 3D au survol (formations)
-if (!reduced && matchMedia("(hover: hover)").matches) {
-  $$("[data-tilt]").forEach((card) => {
-    card.addEventListener("pointermove", (e) => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transform = `perspective(900px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
-    });
-    card.addEventListener("pointerleave", () => (card.style.transform = ""));
+function onStory() {
+  if (!story) return;
+  const r = story.getBoundingClientRect();
+  const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - innerHeight)));
+  hero?.setProgress(p);
+  if (storyCopy && !reduced) {
+    storyCopy.style.opacity = String(Math.max(0, 1 - p * 4));
+    storyCopy.style.transform = `translateY(${-p * 120}px) scale(${1 - p * 0.15})`;
+  }
+  captions.forEach((c) => {
+    const at = Number(c.dataset.at);
+    c.classList.toggle("is-on", p > at - 0.09 && p < at + 0.13);
   });
 }
+if (story) {
+  addEventListener("scroll", onStory, { passive: true });
+  addEventListener("resize", onStory);
+  onStory();
+}
 
-// Avis : remplissage du slider depuis le livre d'or
-const avisTrack = $("[data-avis-track]");
-if (avisTrack) {
+// Apparitions douces au défilement
+const revealIO = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("is-visible");
+        revealIO.unobserve(e.target);
+      }
+    }),
+  { rootMargin: "0px 0px -8% 0px" },
+);
+$$(".reveal").forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 4) * 70}ms`;
+  revealIO.observe(el);
+});
+
+// Avis : deux rangées qui défilent en sens inverse (bandeau infini)
+const marquee = $("[data-marquee]");
+if (marquee) {
   import("../../content/avis.json").then(({ default: avis }) => {
-    const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-    avisTrack.innerHTML = avis
-      .slice(0, 18)
-      .map(
-        (a) => `<article class="avis-card"><div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+    const card = (a) => `<article class="avis-card"><div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
         <p>${esc(a.texte)}</p><footer><strong>${esc(a.auteur)}</strong>
-        <time datetime="${a.date}">${new Date(a.date).toLocaleDateString("fr-FR", { month: "long", year: "numeric" })}</time></footer></article>`,
-      )
-      .join("");
-    new Slider(avisTrack.closest(".slider"));
+        <time datetime="${a.date}">${new Date(a.date).toLocaleDateString("fr-FR", { month: "long", year: "numeric" })}</time></footer></article>`;
+    const row = (list, reverse) => {
+      const html = list.map(card).join("");
+      // Contenu doublé pour une boucle sans à-coup ; la copie est masquée aux lecteurs d'écran
+      return `<div class="marquee__row${reverse ? " marquee__row--reverse" : ""}">${html}<div style="display: contents" aria-hidden="true">${html}</div></div>`;
+    };
+    const courts = avis.filter((a) => a.texte.length < 420).slice(0, 24);
+    marquee.innerHTML = row(courts.slice(0, 12), false) + row(courts.slice(12, 24), true);
   });
 }
 
 initSliders();
 
-// Parcours de formation (étapes cliquables + voiture qui avance)
+// Parcours de formation (onglets)
 const parcours = $("[data-parcours]");
 if (parcours) initParcours(parcours);
 
-// Code du jour
+// Panneau du jour
 const quiz = $("[data-quiz]");
 if (quiz) import("./quiz.js").then(({ initQuiz }) => initQuiz(quiz));
 
@@ -136,7 +158,6 @@ function webglOK() {
 
 function initParcours(root) {
   const steps = $$("[data-step]", root);
-  const car = $(".parcours__car", root);
   const detail = $("[data-parcours-detail]", root);
   let current = 0;
   let auto = !reduced;
@@ -147,20 +168,16 @@ function initParcours(root) {
     steps.forEach((s, k) => (k === i ? s.setAttribute("aria-current", "step") : s.removeAttribute("aria-current")));
     const tpl = $(`template[data-for="${steps[i].dataset.step}"]`, root);
     detail.replaceChildren(tpl.content.cloneNode(true));
-    if (car) {
-      const r = steps[i].getBoundingClientRect();
-      const pr = root.getBoundingClientRect();
-      car.style.left = `${r.left - pr.left + 6}px`;
-    }
   };
   steps.forEach((s, i) => $("button", s).addEventListener("click", () => select(i, true)));
-  addEventListener("resize", () => select(current));
   select(0);
-  const io = new IntersectionObserver(([e]) => { root.dataset.visible = e.isIntersecting ? "1" : ""; });
+  const io = new IntersectionObserver(([e]) => {
+    root.dataset.visible = e.isIntersecting ? "1" : "";
+  });
   io.observe(root);
   setInterval(() => {
     if (auto && root.dataset.visible && !document.hidden) select((current + 1) % steps.length);
-  }, 4500);
+  }, 5000);
 }
 
 async function renderAnnonces(root) {
@@ -169,10 +186,9 @@ async function renderAnnonces(root) {
     if (!res.ok) throw new Error();
     const data = await res.json();
     const limit = Number(root.dataset.limit || 99);
-    const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
     const items = (data.annonces || []).slice(0, limit);
     root.innerHTML = `
-      ${data.resume ? `<p class="lead">${esc(data.resume)}</p>` : ""}
+      ${data.resume ? `<p class="lead" style="margin-bottom: 1.2rem">${esc(data.resume)}</p>` : ""}
       <div class="annonces">${
         items.length
           ? items.map((a) => `<article class="annonce ${a.type === "changement" ? "" : "annonce--info"}"><h3>${esc(a.titre)}</h3><p>${esc(a.texte)}</p></article>`).join("")

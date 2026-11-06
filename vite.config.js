@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { resolve, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderAvisList } from "./src/build/avis.js";
@@ -33,6 +33,13 @@ function partials() {
           );
         }
         out = out.replace(/<!--\s*@avis-list\s*-->/g, () => renderAvisList());
+        // Emplacements photo : <figure class="media is-empty" data-photo="nom.jpg">.
+        // Si public/images/site/nom.jpg existe, la photo est insérée ; sinon le dégradé reste.
+        out = out.replace(/<figure class="media is-empty"([^>]*?)data-photo="([^"]+)"([^>]*)><\/figure>/g, (m, a, file, b) =>
+          existsSync(resolve(root, "public/images/site", file))
+            ? `<figure class="media"${a}data-photo="${file}"${b}><img src="/images/site/${file}" alt="" loading="lazy" /></figure>`
+            : m,
+        );
         out = out.replace(
           new RegExp(`(<a[^>]*data-page="${page}")`, "g"),
           '$1 aria-current="page"',

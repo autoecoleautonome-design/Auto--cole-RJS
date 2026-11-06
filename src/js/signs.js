@@ -52,7 +52,7 @@ const draw = {
     polygon(ctx, s / 2, s / 2, s * 0.47, 8, Math.PI / 8);
     ctx.fillStyle = ROUGE; ctx.fill();
     ctx.lineWidth = s * 0.025; ctx.strokeStyle = BLANC; ctx.stroke();
-    ctx.fillStyle = BLANC; ctx.font = `800 ${s * 0.27}px "Barlow Condensed", Arial Narrow, sans-serif`;
+    ctx.fillStyle = BLANC; ctx.font = `800 ${s * 0.27}px "Inter Tight", Arial, sans-serif`;
     ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("STOP", s / 2, s / 2 + s * 0.02);
   },
   /** AB6 : route à caractère prioritaire */
@@ -104,7 +104,7 @@ const draw = {
     const h = s * 0.42, y = (s - h) / 2;
     ctx.fillStyle = BLEU; roundRect(ctx, s * 0.02, y, s * 0.96, h, s * 0.05); ctx.fill();
     ctx.lineWidth = s * 0.018; ctx.strokeStyle = BLANC; roundRect(ctx, s * 0.05, y + s * 0.03, s * 0.9, h - s * 0.06, s * 0.035); ctx.stroke();
-    ctx.fillStyle = BLANC; ctx.font = `700 ${s * 0.13}px "Barlow Condensed", Arial Narrow, sans-serif`;
+    ctx.fillStyle = BLANC; ctx.font = `700 ${s * 0.13}px "Inter Tight", Arial, sans-serif`;
     ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(label, s / 2, s / 2);
   },
 };
@@ -112,7 +112,7 @@ const draw = {
 function speed(ctx, s, n) {
   ctx.beginPath(); ctx.arc(s / 2, s / 2, s * 0.47, 0, Math.PI * 2); ctx.fillStyle = ROUGE; ctx.fill();
   ctx.beginPath(); ctx.arc(s / 2, s / 2, s * 0.36, 0, Math.PI * 2); ctx.fillStyle = BLANC; ctx.fill();
-  ctx.fillStyle = NOIR; ctx.font = `800 ${s * 0.34}px "Barlow Condensed", Arial Narrow, sans-serif`;
+  ctx.fillStyle = NOIR; ctx.font = `800 ${s * 0.34}px "Inter Tight", Arial, sans-serif`;
   ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(n, s / 2, s / 2 + s * 0.02);
 }
 
