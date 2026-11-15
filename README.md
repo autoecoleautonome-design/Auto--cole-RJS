@@ -13,8 +13,9 @@ www.autoecoleautonome.fr, et trois agents IA (Claude) qui automatisent une parti
 
 - **Style** inspiré des pages produit Apple et de Spotify : grande typographie (Inter / Inter Tight), fonds noirs et gris
   clair, cartes très arrondies, navigation en verre dépoli, boutons pilule, rouge de la voiture-école en couleur d'accent.
-- **Animation 3D** (Three.js) : la voiture-école, enseigne « AUTO-ÉCOLE » sur le toit, tourne sur un plateau de studio ;
-  le défilement de la page pilote la rotation et la caméra, avec trois messages qui apparaissent tour à tour.
+- **Animation 3D** (Three.js) : une grande berline deux tons, noir brillant et cuivre, modélisée entièrement par le code
+  (`src/js/car.js`), avec l'enseigne « AUTO-ÉCOLE » sur le toit. Elle tourne dans un studio photo virtuel (boîtes à lumière,
+  reflets sur la peinture, reflet au sol) ; le défilement de la page pilote la rotation et la caméra.
 - **Slides dynamiques** : rangée de formations en cartes colorées (façon Spotify), grille « bento » (façon Apple),
   parcours en onglets, avis en bandeau défilant sur deux rangées, galerie photos. Glisser à la souris ou au doigt, flèches, clavier.
 - **Panneau du jour** : un panneau en 3D qu'on peut faire tourner, avec une question de code (11 panneaux).
