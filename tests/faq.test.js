@@ -6,7 +6,8 @@ import { handleChat, validateMessages } from "../agents/faq/handler.js";
 test("la base de connaissances est découpée en sections", () => {
   const titres = sections().map((s) => s.titre);
   assert.ok(titres.some((t) => /Horaires/.test(t)));
-  assert.ok(titres.some((t) => /CPF/.test(t)));
+  assert.ok(titres.some((t) => /Financements/.test(t)));
+  assert.ok(titres.some((t) => /tarifs/.test(t)));
 });
 
 test("réponse de secours pertinente sans IA", () => {

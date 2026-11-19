@@ -516,3 +516,17 @@ li { margin-bottom: 0.35em; }
   .bento__tile { min-height: 170px; }
   .bento__tile--photo { min-height: 300px; }
 }
+
+/* --- Prix et échéancier (pages Formations / Financement) ---------------- */
+.prix { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.3rem 0.8rem; margin: 0.4rem 0 1rem; }
+.prix__montant { font: 700 clamp(2.6rem, 5vw, 3.4rem)/1 var(--font-display); letter-spacing: -0.045em; color: var(--rouge); }
+.prix__detail { color: var(--gris); font-weight: 500; }
+.section--dark .prix__detail { color: var(--gris-clair); }
+.echeancier { list-style: none; padding: 0; margin: 0 0 1.2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+.echeancier li { margin: 0; padding: 0.7rem 0.9rem; border-radius: var(--r-md); background: var(--blanc); font-size: 0.85rem; color: var(--gris); line-height: 1.3; }
+.echeancier strong { display: block; font: 700 1.15rem var(--font-display); color: var(--encre); letter-spacing: -0.02em; }
+.section:not(.section--beton):not(.section--brume) .fiche .echeancier li { background: var(--blanc); }
+.section--beton .fiche .echeancier li { background: var(--brume); }
+.prix-alt { margin: 1rem 0; padding-top: 1rem; border-top: 1px solid rgba(127, 127, 127, 0.2); }
+.fiche .btn { margin-top: 0.4rem; }
+.tag--prix { background: rgba(255, 255, 255, 0.95); color: var(--encre); }

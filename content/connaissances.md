@@ -1,184 +1,173 @@
 # Base de connaissances — Auto-École Autonome
 
 > Source unique de vérité pour l'agent IA « Questions des élèves » et pour le contenu du site.
-> Reprise du site historique www.autoecoleautonome.fr et des documents qualité de l'auto-école.
+> Mise à jour d'après le nouveau site officiel https://autoecoleautonome.com/ (novembre 2026), complété par les documents qualité de l'auto-école.
 > **Mettez ce fichier à jour dès qu'une information change** : l'agent répondra automatiquement avec la nouvelle version.
 
 ## 1. Identité et coordonnées
 
-- Nom : **AUTO ECOLE AUTONOME** (SAS AUTO ECOLE AUTONOME)
+- Nom : **SAS Auto-École Autonome**
 - Adresse : 248 rue de la République, 69400 Villefranche-sur-Saône
 - Téléphone : 04 74 62 38 62
 - E-mail : autoecole.autonome@gmail.com
-- Numéro d'agrément préfectoral : E 19 069 0001 0
-- SIREN : 841 914 195 (l’ancien site affiche « 841914195000148 », SIRET à vérifier)
-- Gérant et responsable pédagogique : M. Ferroudj
+- Site officiel : https://autoecoleautonome.com/
+- Pré-inscription en ligne (gratuite, sans engagement) : https://autoecoleautonome.com/pre-inscription
+- Numéro d'agrément préfectoral : E 19 069 0001 0 (préfecture du Rhône)
+- SIRET : en attente du numéro à 14 chiffres (SIREN 841 914 195)
+- Gérant, responsable pédagogique et directeur de la publication : Toufik Ferroudj
+- Relations élèves : Soraya Ferroudj
 - Facebook : https://www.facebook.com/Auto-Ecole-Autonome-1279715262136914/
-- Instagram : https://www.instagram.com/autoecole69400/ (@autoecole69400)
-- Certifications : **Qualiopi** (formations éligibles au CPF), **Label « qualité des formations au sein des écoles de conduite »**, offre éligible **Mon Compte Formation**, partenaire France Travail (ex-Pôle emploi).
+- Instagram : https://www.instagram.com/autoecole69400/ (@autoecole69400). L'auto-école est aussi sur TikTok.
+- Avis : livre d'or (84 avis depuis 2019), fiche Google, VroomVroom.
+- Certifications : **Qualiopi**, **label de l'État « qualité des formations au sein des écoles de conduite »**, offre éligible **Mon Compte Formation**.
+- **Garantie financière souscrite** : si l'école cessait son activité, un organisme extérieur rembourserait les leçons payées et non prises (nom de l'organisme indiqué dans le contrat).
 
-## 2. Accès
+## 2. Les agences
 
-- En plein cœur de Villefranche-sur-Saône, à **450 mètres à pied de la gare** de Villefranche-sur-Saône.
-- Proche de plusieurs lycées caladois, facilement accessible à pied ou en transports en commun.
+### Villefranche-sur-Saône (agence principale)
+- En plein cœur de Villefranche-sur-Saône, à **450 mètres à pied de la gare**, proche des lycées.
 - Lignes de bus les plus proches : **1, 2, 3, 4, 5, 7, 10, 11**.
-- **Parking privé** : c'est le lieu de rendez-vous des leçons de conduite, pour débriefer tranquillement sans chercher de place.
-- Locaux d'environ 90 m² avec salle d'attente et salle de code. Entrée accessible aux personnes à mobilité réduite.
+- **Parking privé** : point de rendez-vous des leçons. Chaque leçon commence et finit sur le parking, pour débriefer au calme.
+- Local d'environ 90 m² avec salle d'attente et salle de code.
+
+### Belleville-en-Beaujolais (seconde agence)
+- **Pré-inscriptions ouvertes** pour la seconde agence de Belleville-en-Beaujolais.
+- Cours de conduite à Belleville ; code en salle à Villefranche-sur-Saône (à 450 m de la gare) ou en ligne.
+- Pré-inscription : https://autoecoleautonome.com/pre-inscription (choisir l'agence de Belleville).
 
 ## 3. Horaires
 
-### Bureau et salle de code
+### Bureau et salle de code (Villefranche)
 | Jour | Horaires |
 |---|---|
 | Lundi | Fermé |
 | Mardi | 10h – 12h et 15h – 19h |
 | Mercredi | 10h – 12h et 14h – 19h |
-| Jeudi | 10h – 12h et 14h – 19h |
+| Jeudi | 14h – 19h |
 | Vendredi | 10h – 12h et 14h – 19h |
 | Samedi | 10h – 13h |
 
-(Horaires issus du document « Modalités d'organisation des formations 2025 ». En cas de doute, appeler le 04 74 62 38 62.)
-
 ### Leçons de conduite
-- Du **lundi au vendredi de 8h à 20h** (8h–13h et 14h–20h)
+- Du **lundi au vendredi de 8h à 20h**
 - Le **samedi de 8h à 13h**
 
-## 4. L'équipe
+## 4. L'équipe : cinq personnes, quatre méthodes
 
-- **Soraya** : accueil, secrétariat, plannings et dossiers. Très appréciée des élèves pour sa disponibilité et sa capacité à adapter l'agenda.
-- **Quatre enseignants diplômés** de la sécurité routière : **Philippe, David, Bernadette et Toufik**.
-- M. Ferroudj : gérant et responsable pédagogique.
-- Les enseignants se réunissent chaque mois pour faire le point sur l'évolution des élèves et préparer les plannings.
+- **Toufik Ferroudj** : gérant, responsable pédagogique et enseignant de la conduite.
+- **Soraya Ferroudj** : co-dirigeante, accueil, dossiers et plannings. « Celle qu'on appelle quand on ne sait plus quoi faire. Elle répond. »
+- **Philippe**, **David** et **Bernadette** : enseignants de la conduite.
+- Chaque élève a une fiche de suivi, cochée par l'enseignant du jour quel qu'il soit, et doublée sur le **livret numérique Sarool** (application sur téléphone : compétences validées, prochaines leçons, remarques).
 
-## 5. Formations proposées
+## 5. Comment ça se passe
 
-### Permis B (boîte manuelle) — « traditionnel »
-- Permet de conduire un véhicule de tourisme ou utilitaire n'excédant pas 3,5 t (3 500 kg).
-- Formation la plus utilisée, bon départ pour les débutants. Bilans réguliers pour suivre la progression, formation personnalisée.
-- Inscription possible dès **17 ans** ; examen pratique possible dès **17 ans** (réforme 2024), après réussite du code.
-- **Forfait Permis B** : constitution du dossier, évaluation de départ (sur ordinateur), accès code internet (6 mois), accès à la salle de code (6 mois), livre de code, livret numérique, **20 leçons de conduite**, frais d'accompagnement à l'examen.
-- Minimum légal : 20 heures de conduite en boîte manuelle.
+1. **Pré-inscription** en ligne (gratuite, sans engagement, ne réserve pas de place) : https://autoecoleautonome.com/pre-inscription. Soraya fixe ensuite l'heure d'évaluation.
+2. **Évaluation de départ, une heure** (au volant sur le parking privé, ou sur tablette/ordinateur au bureau) : prérequis, expérience de la route, psychomotricité, motivation. Elle fixe le nombre d'heures proposé, qui peut dépasser le minimum légal. Vous repartez avec un parcours écrit et chiffré.
+3. **Signature du contrat** en agence et versement de l'acompte : l'inscription est alors effective.
+4. Code, puis leçons de conduite de 55 minutes depuis le parking privé.
+5. **Examen blanc** en fin de parcours. Personne n'est présenté à l'examen « pour faire du chiffre ».
 
-### Permis B boîte automatique (BEA)
-- Permet de conduire un véhicule à embrayage automatique. Durée minimale de formation pratique : **13 heures**.
-- Pour passer ensuite au permis B sans restriction : **formation passerelle de 7 heures** (possible après 3 mois de permis BEA), validée par une attestation — pas de nouvel examen.
+## 6. Formations et tarifs (prix TTC)
 
-### Passerelle boîte automatique → boîte manuelle
-- Formation de 7 h pour les titulaires depuis plus de 3 mois d'un permis B boîte automatique, pour conduire des voitures à boîte manuelle.
+Les forfaits se paient **par étapes** : un acompte à l'inscription, un versement au code, puis à chaque bloc d'heures. Les sommes versées avant de conduire sont couvertes par la garantie financière. Le tarif applicable est celui du contrat signé.
 
-### Conduite accompagnée (AAC)
-- Dès **15 ans**. Acquisition progressive de l'expérience sur une longue durée ; formation rassurante et efficace.
-- Après le code : au moins **20 leçons** en auto-école (13 h en boîte automatique), puis conduite avec un accompagnateur (titulaire du permis depuis au moins 5 ans sans interruption) pendant **au moins 1 an** (maximum 3 ans) et **au moins 3 000 km**.
-- **Forfait AAC** : constitution du dossier, évaluation de départ (sur ordinateur), accès internet (6 mois), accès à la salle (6 mois), livre de code, livret numérique, 20 leçons de conduite, 1 rendez-vous préalable avec les parents, 2 rendez-vous pédagogiques (à 6 mois / 1 000 km et à 1 an / 3 000 km), frais d'accompagnement au permis.
-- Avantage : période probatoire de 2 ans au lieu de 3, meilleur taux de réussite, assurance souvent moins chère.
+### Permis B traditionnel (boîte manuelle)
+- Inscription et examen pratique **dès 17 ans**. 20 h de conduite minimum. Probatoire de 3 ans.
+- **Code + conduite : 1 350 €** (20 leçons, 1 examen de conduite). Échéancier : 300 € à l'inscription, 525 € au code, 525 € toutes les 10 h. Comprend : démarches, évaluation de conduite, salle de code 6 mois, livre de code, séries en ligne 6 mois, livret Sarool, 20 leçons, 1 examen.
+- **Sans code (code déjà obtenu) : 1 200 €** (20 leçons, 1 examen). Échéancier : 600 € à l'inscription (10 h), 600 € pour les 10 leçons suivantes.
 
-### Conduite supervisée (CS)
-- Équivalent de la conduite accompagnée pour les **18 ans et plus**. Pas de durée ni de kilométrage minimum imposés.
-- Utilisée en cas de difficultés pendant la formation initiale ou après un échec à l'examen pratique. Permet de travailler avec un accompagnateur les lacunes repérées par les enseignants, et d'apprendre à moindre coût.
-- Conditions : code réussi, évaluation de fin de formation initiale (20 h minimum en école de conduite), rendez-vous préalable, accord écrit de l'assureur. Accompagnateur titulaire du permis depuis au moins 5 ans sans interruption.
+### Permis B boîte automatique
+- 13 h de conduite minimum. Passerelle de 7 h vers la boîte manuelle, 3 mois après l'obtention, sans repasser d'examen.
+- **Code + conduite : 1 070 €** (13 leçons, 1 examen). Échéancier : 300 € à l'inscription, 385 € au code, 385 € à la 1re heure.
+- **Sans code : 900 €** (13 leçons, 1 examen). Échéancier : 450 € à l'inscription (6 h), 450 € pour les 7 leçons suivantes.
 
-### Cours de perfectionnement / remise à niveau
-Pour reprendre confiance après plusieurs mois ou années sans conduire, ou :
-- adopter l'éco-conduite (réduire les émissions) ;
-- anticiper la conduite difficile (neige, glace, départ aux sports d'hiver) ;
-- réapprendre les manœuvres de stationnement ;
-- conduire dans un environnement inconnu (titulaires d'un permis étranger) ;
-- reprendre le volant après un accident ;
-- conducteurs qui conduisent peu, ou seniors.
+### Conduite accompagnée (AAC), dès 15 ans
+- Formation initiale à l'auto-école, puis au moins **1 an et 3 000 km** avec un accompagnateur titulaire du permis depuis 5 ans sans interruption, avec l'accord de son assureur. Deux rendez-vous pédagogiques. **Probatoire réduit à 2 ans.** 74 % de réussite du premier coup au niveau national (55 % par la voie classique).
+- **AAC boîte manuelle, code inclus : 1 600 €** (20 leçons, **examen de conduite offert**). Échéancier : 300 € à l'inscription, 600 € au code puis toutes les 10 h, 100 € au RDV des 6 mois, 100 € au RDV d'1 an. Comprend : dossier, évaluation, internet et salle 6 mois, livre de code, livret Sarool, 20 leçons, 1 leçon préalable avec les parents, 2 RDV pédagogiques.
+- **AAC boîte automatique, code inclus : 1 300 €** (13 leçons, 2 RDV pédagogiques). Échéancier : 300 € à l'inscription, 400 € au code (7 h), 400 € à la 7e heure, 100 € à chacun des 2 RDV pédagogiques.
+- Le CPF et France Travail ne financent pas l'AAC d'un mineur.
+
+### Conduite supervisée (CS), dès 18 ans
+- Même formation initiale que le permis B (code obtenu, 20 h minimum, évaluation de fin de formation validée), puis conduite avec un accompagnateur titulaire du permis depuis 5 ans, après un rendez-vous préalable et l'accord écrit de l'assureur. **Sans durée ni kilométrage imposés.** Possible en fin de formation ou après un échec à l'examen. Probatoire de 3 ans maintenu.
+- Se décide après la formation initiale, sur le forfait B manuelle (1 350 €) ou automatique (1 070 €).
+
+### Perfectionnement et reprise de conduite
+- Pour les titulaires du permis qui ont perdu l'habitude, ou qu'un trajet inquiète (autoroute, nuit, ville).
+- **55 € l'heure**, à l'unité, après une heure d'évaluation. Pas de forfait.
+
+### Formation post-permis
+- 7 heures en groupe (une journée), **entre le 6e et le 12e mois** après le permis.
+- Réduit la période probatoire : 2 ans au lieu de 3 (voie classique), 18 mois au lieu de 2 ans (après AAC). Certains assureurs accordent une remise.
+- Tarif : nous consulter. Dates de session affichées à l'agence et sur les réseaux.
+
+### Passerelle boîte automatique → manuelle
+- 7 heures de formation, 3 mois au moins après le permis automatique, **sans examen à repasser**. Tarif : nous consulter.
+
+### Prestations hors forfait
+- Heure de conduite supplémentaire : **55 €**
+- Examen blanc : **55 €**
+- Accompagnement à un nouvel examen après un échec : **55 €**
+- Redevance de l'examen du code : **30 €**, reversée à l'État
+- Transfert de dossier : nous consulter
 
 ### Annulation du permis de conduire
 - Contrôle médical et examen psychotechnique obligatoires avant de repasser les épreuves.
-- On ne repasse **que le code** si : permis obtenu depuis au moins 3 ans, interdiction de solliciter un nouveau permis inférieure à 1 an, et inscription dans les 9 mois suivant la fin de l'interdiction.
-- On repasse **code et conduite** si : permis obtenu depuis moins de 3 ans, ou interdiction d'1 an ou plus, ou inscription au-delà de 9 mois après la fin de l'interdiction.
+- On ne repasse **que le code** si : permis obtenu depuis au moins 3 ans, interdiction de solliciter un nouveau permis inférieure à 1 an, et inscription dans les 9 mois suivant la fin de l'interdiction. Sinon, code et conduite.
 
-### Formation post-permis
-- Pour les conducteurs novices (premier permis A1, A2, B1 ou B, ou permis repassé après invalidation/annulation).
-- À suivre **entre le 6e et le 12e mois** après l'obtention du permis.
-- 7 heures (2 demi-journées consécutives), en groupe de 6 à 12 participants, dans une auto-école labellisée.
-- Réduit la période probatoire : de 3 à 2 ans (formation traditionnelle ou CS), de 2 ans à 1 an et demi (AAC).
-- Une attestation de suivi est délivrée à l'issue des 7 heures.
+## 7. Le code de la route
 
-### Autres formations permises par le label qualité
-- Formation de 7 h pour la conduite d'un véhicule attelé à une remorque (B96).
+Trois formules, **cumulables** :
+1. **En ligne (incluse)** : 150 séries de questions et examens blancs autocorrigés, 24h/24 pendant 6 mois, avec identifiants personnels remis à l'inscription. L'auto-école suit vos résultats et vous relance si ça stagne.
+2. **En salle (incluse)** : séries illimitées pendant 6 mois aux heures d'ouverture, sur tablette, dans les conditions de l'examen. **Correction animée par un enseignant tous les mercredis de 17h à 19h**, sur réservation.
+3. **Stage de 3 jours** : 10h–17h en agence pendant les vacances scolaires, avec un enseignant, sur réservation (dates à l'agence et sur les réseaux).
 
-## 6. Le code de la route
+- Les 11 thèmes : signalisation, priorités, règles de circulation, croisements et dépassements, arrêt et stationnement, visibilité, éco-conduite, tunnels et passages à niveau, partage de la route, risques, éco-mobilité.
+- **Examen (ETG)** : 40 questions, 35 bonnes réponses minimum (5 fautes maximum). Réservé auprès de l'opérateur agréé **SGS ObjectifCode** (https://www.objectifcode.sgs.com/), créneaux de 8h à 19h du lundi au samedi, plus de 1 000 salles, redevance de 30 €. Résultat par e-mail le jour même. Le code est valable 5 ans.
+- On vous dit quand vous êtes prêt : au-dessus de 35 bonnes réponses régulièrement sur les examens blancs.
 
-### Formules
-1. **Code internet** : 150 séries de questions/réponses, accessibles 7j/7 et 24h/24, valables 6 mois, avec suivi par un enseignant. Séries d'entraînement, séries d'examen blanc et séries thématiques. Après lecture du livre de code, l'élève commence par l'entraînement puis passe aux examens blancs. L'auto-école suit les progrès en ligne. Plateforme : Ici Code (icicode.fr), identifiants remis à l'inscription.
-2. **Code en agence** : séries illimitées (6 mois) pendant les heures d'ouverture du bureau + **cours de code animés par un enseignant tous les mercredis de 17h à 19h** (corrections expliquées, grands thèmes de la sécurité routière). **Réservation obligatoire** à l'accueil.
-3. **Stage code 3 jours** : formule accélérée, 3 journées pleines (10h–17h) en agence pendant les vacances scolaires, enseignant présent, cours (signalisation, priorités, feux…) et examens blancs le dernier jour. Réservation obligatoire.
+## 8. Les leçons de conduite et l'examen pratique
 
-### Thèmes travaillés
-Le conducteur · Les autres usagers de la route · Réglementation générale · Éléments mécaniques et équipements liés à la sécurité · Équipements de sécurité des véhicules · Précautions en quittant le véhicule · Dispositions légales de circulation · La route · Environnement et éco-conduite · Premiers secours.
+- Une leçon dure **55 minutes** et commence et finit sur le parking privé de l'agence.
+- Réservation des heures par e-mail ou à l'accueil. **Annulation : prévenir au moins 48 heures à l'avance (jours ouvrés)**, sinon la leçon peut être due (conditions détaillées dans le règlement intérieur et le contrat).
+- Programme national REMC en 4 compétences : (1) maîtriser le véhicule dans un trafic faible ou nul ; (2) appréhender la route en conditions normales ; (3) circuler en conditions difficiles et partager la route ; (4) pratiquer une conduite autonome, sûre et économique.
+- **Examen pratique** : au moins **20 points sur 30**, sans erreur éliminatoire. Résultat sur **RdvPermis** (https://candidat.permisdeconduire.gouv.fr/) dès le lendemain. En cas de réussite, le certificat (CEPC) + pièce d'identité vaut permis pendant 4 mois.
+- Permis probatoire : 3 ans (2 ans après AAC). Suivi de fabrication du permis sur le site de l'ANTS.
 
-### L'examen théorique général (ETG)
-- 40 questions tirées au hasard ; réussite avec **35 bonnes réponses minimum (5 fautes maximum)**.
-- Se passe chez un opérateur agréé, redevance de **30 €** à la charge du candidat. Résultat par e-mail dans la journée.
-- Le code est valable 5 ans (dans la limite de 5 présentations à l'examen pratique).
+## 9. Financements
 
-## 7. Les leçons de conduite et l'examen pratique
+1. **Permis à 1 € par jour** (15–25 ans) : prêt à taux zéro de l'État, réservé aux écoles labellisées. Remboursement de 30 € par mois. Conditions : 15 à 25 ans, première inscription au permis B, banque partenaire. Ne se cumule pas avec le CPF sur les mêmes heures.
+2. **CPF (Compte Personnel de Formation)** : finance le code et le permis B (pas l'AAC d'un mineur). Pour salariés, demandeurs d'emploi, intérimaires, saisonniers, apprentis de plus de 15 ans, indépendants. Conditions : projet professionnel, permis non suspendu, école certifiée Qualiopi (c'est le cas). Démarches : activer son compte sur moncompteformation.gouv.fr, demander un devis après l'heure d'évaluation, créer le dossier en choisissant l'école, puis commencer. Pas d'avance de votre part sur la partie financée. Compléments possibles : abondement France Travail, dotation de l'employeur, autres aides.
+3. **France Travail** : aide au permis B pour les demandeurs d'emploi, validée par le conseiller avant l'inscription.
+4. **Mission locale** (16–25 ans) : pour les jeunes suivis par la Mission locale de Villefranche-sur-Saône.
+5. **Conseil départemental du Rhône** : aides à la mobilité selon la situation sociale.
+6. **Bourse au permis** : certaines communes financent une partie du permis contre des heures de bénévolat. Se renseigner en mairie.
+7. **Région Auvergne-Rhône-Alpes** (17–18 ans) : **150 € remboursés** sur présentation de la facture acquittée, demande sur le site de la Région.
+8. **Pass'Région engagement** : jusqu'à 1 000 € contre une mission d'engagement volontaire dans une association partenaire.
 
-- Une leçon dure **55 minutes** : évaluation de départ des compétences à travailler, exercices, puis bilan des progrès en fin de séance.
-- Suivi avec la fiche de suivi et le livret d'apprentissage numérique.
-- Rendez-vous des leçons : au parking privé de l'auto-école.
-- Réservation des heures **par e-mail ou directement en agence**. Le planning est établi selon les disponibilités de l'élève.
-- **Annulation : prévenir au moins 48 heures à l'avance (jours ouvrés)**, sinon la leçon peut être due.
-- En cas de difficultés, les parents peuvent être invités à une séance pour définir la suite de la formation.
-- Programme REMC en 4 compétences : (1) maîtriser le véhicule dans un trafic faible ou nul ; (2) appréhender la route en conditions normales ; (3) circuler en conditions difficiles et partager la route ; (4) pratiquer une conduite autonome, sûre et économique.
-- **Examen pratique** : évaluation des compétences par un inspecteur ; réussite avec **au moins 20 points sur 30**, sans erreur éliminatoire.
-- **Résultat** : disponible dès le lendemain (48 h max) sur la plateforme **RdvPermis** (https://candidat.permisdeconduire.gouv.fr/). En cas de réussite, le certificat d'examen du permis de conduire (CEPC) + pièce d'identité vaut permis pendant 4 mois (papier ou smartphone).
-- Permis probatoire de 6 points : 3 ans (2 ans après AAC). Suivi de fabrication du permis sur le site de l'ANTS.
+Soraya monte le dossier d'aide avec vous : venez avec les justificatifs.
 
-## 8. Financement
+## 10. Inscription — documents à fournir
 
-### CPF (Compte Personnel de Formation)
-- L'auto-école est **certifiée Qualiopi** : le permis B (et BEA) peut être financé avec le CPF via l'application / le site **Mon Compte Formation** (www.moncompteformation.gouv.fr).
-- Accessible aux salariés (CDD, CDI, intérim, temps partiel…), demandeurs d'emploi, apprentis de plus de 15 ans, travailleurs indépendants.
-- Conditions : le permis doit favoriser l'accès à l'emploi ou un projet professionnel ; pas de suspension ou d'interdiction de solliciter un permis.
-- Démarches : 1) consulter ses droits ; 2) demander un devis à l'auto-école (20 h minimum en boîte manuelle, 13 h en automatique) ; 3) créer le dossier sur Mon Compte Formation.
-- Si les droits sont insuffisants : abondement France Travail, dotation volontaire de l'employeur, ou paiement du complément.
+- Inscription dès 15 ans en conduite accompagnée ; examen pratique du permis B dès 17 ans.
+- **Si vous n'avez pas encore le code** : pièce d'identité, justificatif de domicile, e-photo (photo d'identité avec signature numérique), certificat **JDC** (17–25 ans), **ASSR 2** (si moins de 21 ans). Personnes hébergées : attestation d'hébergement + pièce d'identité de l'hébergeant. Candidat mineur dont le nom diffère de celui du responsable légal : livret de famille. Titulaire du permis AM (ex-BSR) : copie du permis.
+- **Si vous avez déjà le code** : attestation d'inscription au permis (ANTS), résultat du code, pièce d'identité.
+- Les pièces peuvent être déposées avec la pré-inscription en ligne.
 
-### Permis à 1 € par jour
-- Prêt à taux zéro pour les **15–25 ans** : l'établissement financier avance l'argent, l'État paie les intérêts. Remboursement de **30 € par mois** (1 € par jour) dès le déblocage des fonds.
-- L'auto-école évalue le nombre d'heures, établit un devis et un contrat, qui servent à la demande de prêt auprès de la banque (sous réserve d'acceptation du dossier).
+## 11. Qualité, handicap, réclamations
 
-### Autres aides possibles
-- Aide France Travail au permis, aides des collectivités, aide de 500 € pour les apprentis majeurs. Se renseigner à l'accueil.
-
-### Tarifs
-- Les tarifs détaillés ne sont **pas publiés en ligne**. Une **proposition détaillée et chiffrée** est remise à chaque élève après l'évaluation de départ. Pour un devis : 04 74 62 38 62, autoecole.autonome@gmail.com ou passage à l'agence.
-
-## 9. Inscription — documents à fournir
-
-- 2 photos d'identité avec signature numérique (**e-photo**, code ANTS).
-- Photocopie recto/verso de la carte d'identité française, du passeport ou du titre de séjour.
-- Pour les mineurs : photocopie de la pièce d'identité du représentant légal (et du livret de famille si le nom diffère).
-- Photocopie du certificat de participation à la **Journée Défense et Citoyenneté (JDC)** pour les 17–25 ans.
-- Photocopie du permis de conduire pour les titulaires de la catégorie AM (ex-BSR).
-- Justificatif de domicile de moins de 6 mois (avis d'imposition, quittance de loyer, facture téléphone, gaz, électricité, eau…).
-- 4 timbres affranchis à 20 g.
-- Personnes hébergées : attestation d'hébergement sur l'honneur (modèle téléchargeable sur le site) + pièce d'identité de l'hébergeant.
-- **ASSR 2** (obligatoire pour la fabrication du permis, pour les personnes nées après 1988).
-- Une **évaluation de départ** (sur ordinateur) est réalisée à l'inscription pour estimer le nombre d'heures nécessaires.
-
-## 10. Qualité, handicap, réclamations
-
-- Engagements du label : offres et tarifs transparents, équipe pédagogique qualifiée, accompagnement personnalisé, école évaluée par ses élèves, sécurité financière (garantie financière).
-- Documents disponibles sur le site : enjeux de la formation, règlement intérieur, rendez-vous post-permis, valoriser AAC/CS, procédés d'évaluation et de positionnement, prise en compte du handicap, modalités d'organisation, enquête de satisfaction financeur, traitement des réclamations.
-- **Handicap** : le signaler dès le premier rendez-vous. Les possibilités sont étudiées ensemble ; si l'auto-école ne peut pas répondre aux besoins, elle oriente vers un établissement spécialisé (ex. BER Sécurité Routière à Lyon, 04 72 61 61 61) et vers la MDMPH (04 78 63 44 00).
-- **Réclamations** : toute réclamation est enregistrée dans un registre, confirmée au réclamant et traitée avec un **objectif de 15 jours**.
-
-## 11. Avis des élèves
-
-- Plus de 80 avis sur le livre d'or, note moyenne 5/5 sur VroomVroom et 4,8/5 sur Bottin.
-- Points forts cités : pédagogie bienveillante, moniteurs complémentaires, réussite au premier passage, plannings arrangeants, permis obtenu en 2 à 3 mois pour les élèves motivés, élèves en échec ailleurs qui ont repris confiance.
+- Le label suit sept critères ; les documents de preuve sont publiés (enjeux de la formation, règlement intérieur, RDV post-permis, valoriser AAC/CS, procédés d'évaluation et de positionnement, prise en compte du handicap, modalités d'organisation, enquête de satisfaction, traitement des réclamations).
+- **7 points à vérifier avant de signer avec n'importe quelle auto-école** : numéro d'agrément, garantie financière, prix TTC détaillé et prix de l'heure en plus, échéancier, frais après un échec, transfert et résiliation, résultat de l'évaluation et nombre d'heures qui en découle.
+- **Handicap** : le signaler dès le premier rendez-vous ; si l'auto-école ne peut pas répondre aux besoins, elle oriente vers un établissement partenaire : Synergie Conduite (Anse), Auto-école Carnot (Lyon 2e), ECF (Lyon 8e), BER Sécurité Routière (Lyon 3e), MDPH (Lyon 7e).
+- **Réclamations** : enregistrées dans un registre, prise en compte confirmée, traitées sous 15 jours, clôturées après votre accord. Contact : 04 74 62 38 62.
 
 ## 12. Questions fréquentes (réponses courtes)
 
-- **À partir de quel âge ?** Conduite accompagnée dès 15 ans ; permis B dès 17 ans (examen pratique dès 17 ans).
-- **Combien d'heures faut-il ?** Minimum légal 20 h (13 h en automatique). La moyenne nationale est d'environ 30 à 35 h ; l'évaluation de départ donne une estimation personnalisée.
+- **Combien coûte le permis ?** Permis B manuelle code + conduite 1 350 € (1 200 € sans code) ; boîte automatique 1 070 € (900 € sans code) ; conduite accompagnée 1 600 € (manuelle) ou 1 300 € (automatique). Heure supplémentaire 55 €.
+- **À partir de quel âge ?** Conduite accompagnée dès 15 ans ; permis B dès 17 ans (inscription et examen pratique).
+- **Combien d'heures faut-il ?** Minimum légal 20 h (13 h en automatique). L'heure d'évaluation donne une estimation personnelle.
 - **Comment réserver/annuler une leçon ?** Par e-mail ou à l'accueil ; annulation au moins 48 h ouvrées à l'avance.
-- **Où commence la leçon ?** Au parking privé de l'auto-école, 248 rue de la République.
-- **Où voir mon résultat ?** Sur RdvPermis, dès le lendemain de l'examen.
-- **Comment réserver le cours de code du mercredi ?** Réservation obligatoire à l'accueil (mercredi 17h–19h).
-- **Le permis peut-il être payé avec le CPF ?** Oui, l'auto-école est certifiée Qualiopi.
+- **Où commence la leçon ?** Au parking privé de l'agence, 248 rue de la République.
+- **Comment s'inscrire ?** Pré-inscription en ligne sur https://autoecoleautonome.com/pre-inscription, puis heure d'évaluation et signature du contrat en agence.
+- **Y a-t-il une agence à Belleville ?** Oui, une seconde agence ouvre à Belleville-en-Beaujolais : pré-inscriptions ouvertes.
+- **Où réserver l'examen du code ?** Sur SGS ObjectifCode, 30 €.
+- **Où voir mon résultat de conduite ?** Sur RdvPermis, dès le lendemain de l'examen.
+- **Le permis peut-il être payé avec le CPF ?** Oui (sauf AAC d'un mineur), l'auto-école est certifiée Qualiopi.
